@@ -4,10 +4,10 @@
 
 # Site
 title: rookie
-subtitle: ''
+subtitle: '生活明朗 万物可爱'
 description: ''
 keywords:
-author: John Doe
+author: wxy
 language: en
 timezone: ''
 
@@ -41,7 +41,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
