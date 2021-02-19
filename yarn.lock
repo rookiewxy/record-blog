@@ -1285,14 +1285,6 @@ hexo-generator-index@^2.0.0:
     hexo-pagination "1.0.0"
     timsort "^0.3.0"
 
-hexo-generator-search@^2.4.1:
-  version "2.4.1"
-  resolved "https://registry.npm.taobao.org/hexo-generator-search/download/hexo-generator-search-2.4.1.tgz#623d078f4a94fe282f76ea7284f38a58183565a7"
-  integrity sha1-Yj0Hj0qU/igvdupyhPOKWBg1Zac=
-  dependencies:
-    nunjucks "^3.0.1"
-    utils-merge "^1.0.0"
-
 hexo-generator-tag@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/hexo-generator-tag/download/hexo-generator-tag-1.0.0.tgz#54ec23de9409c75584ea81e36057a59031b022f1"
@@ -2102,15 +2094,6 @@ nth-check@~1.0.0, nth-check@~1.0.1:
   integrity sha1-sr0pXDfj3VijvwcAN2Zjuk2c8Fw=
   dependencies:
     boolbase "~1.0.0"
-
-nunjucks@^3.0.1:
-  version "3.2.3"
-  resolved "https://registry.npm.taobao.org/nunjucks/download/nunjucks-3.2.3.tgz#1b33615247290e94e28263b5d855ece765648a31"
-  integrity sha1-GzNhUkcpDpTigmO12FXs52VkijE=
-  dependencies:
-    a-sync-waterfall "^1.0.0"
-    asap "^2.0.3"
-    commander "^5.1.0"
 
 nunjucks@^3.2.1:
   version "3.2.2"
@@ -2938,7 +2921,7 @@ util-deprecate@^1.0.1, util-deprecate@~1.0.1:
   resolved "https://registry.npm.taobao.org/util-deprecate/download/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
 
-utils-merge@1.0.1, utils-merge@^1.0.0:
+utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.npm.taobao.org/utils-merge/download/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
