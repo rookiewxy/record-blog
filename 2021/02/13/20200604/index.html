@@ -361,17 +361,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1-在使用mock接口的时候突然出现了跨域问题，解决方式"><a href="#1-在使用mock接口的时候突然出现了跨域问题，解决方式" class="headerlink" title="1.在使用mock接口的时候突然出现了跨域问题，解决方式"></a>1.在使用mock接口的时候突然出现了跨域问题，解决方式</h4><p><img src="/record-blog/.io//image-20200604203809753.png" alt="image-20200604203809753"></p>
+                <h4 id="1-在使用mock接口的时候突然出现了跨域问题，解决方式"><a href="#1-在使用mock接口的时候突然出现了跨域问题，解决方式" class="headerlink" title="1.在使用mock接口的时候突然出现了跨域问题，解决方式"></a>1.在使用mock接口的时候突然出现了跨域问题，解决方式</h4><p><img src="/record-blog/2021/02/13/20200604/image-20200604203809753.png" alt="image-20200604203809753"></p>
 <p>首先下载这三个插件，然后进行配置</p>
-<p><img src="/record-blog/.io//image-20200604203916905.png" alt="image-20200604203916905"></p>
+<p><img src="/record-blog/2021/02/13/20200604/image-20200604203916905.png" alt="image-20200604203916905"></p>
 <p>第一步：新建一个setupProxy文件，使用http-proxy-middleware第三方插件进行配置，图中的/td的意思就是你接口的最后一个/后面的内容，这里配置完了之后，第二步：在你封装api的地方做一点点的改动，每个url前面都加上一个/td</p>
-<p><img src="/record-blog/.io//image-20200604204132327.png" alt="image-20200604204132327"></p>
+<p><img src="/record-blog/2021/02/13/20200604/image-20200604204132327.png" alt="image-20200604204132327"></p>
 <p>第三步：包括之前二次封装的axios也做了变动，这里的baseUrl就不需要在写了，第四步：另外package.json里面的启动方式也要改变</p>
-<p><img src="/record-blog/.io//image-20200604204229967.png" alt="image-20200604204229967"></p>
-<p><img src="/record-blog/.io//image-20200604204453894.png" alt="image-20200604204453894"></p>
+<p><img src="/record-blog/2021/02/13/20200604/image-20200604204229967.png" alt="image-20200604204229967"></p>
+<p><img src="/record-blog/2021/02/13/20200604/image-20200604204453894.png" alt="image-20200604204453894"></p>
 <p>这样接ok了，参考网址<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a2a5163fefac">https://www.jianshu.com/p/a2a5163fefac</a></p>
-<h4 id="2-使用react-cropper完成图片的上传剪切，缩放等功能，写这个原因主要是闲不住"><a href="#2-使用react-cropper完成图片的上传剪切，缩放等功能，写这个原因主要是闲不住" class="headerlink" title="2,使用react-cropper完成图片的上传剪切，缩放等功能，写这个原因主要是闲不住"></a>2,使用<code>react-cropper</code>完成图片的上传剪切，缩放等功能，写这个原因主要是闲不住</h4><h4 id="案例展示"><a href="#案例展示" class="headerlink" title="案例展示"></a>案例展示</h4><p><img src="/record-blog/.io//image-20200604205113577.png" alt="image-20200604205113577"></p>
-<h5 id="代码实现方式"><a href="#代码实现方式" class="headerlink" title="代码实现方式"></a>代码实现方式</h5><p><img src="/record-blog/.io//image-20200604205236296.png" alt="image-20200604205236296"></p>
+<h4 id="2-使用react-cropper完成图片的上传剪切，缩放等功能，写这个原因主要是闲不住"><a href="#2-使用react-cropper完成图片的上传剪切，缩放等功能，写这个原因主要是闲不住" class="headerlink" title="2,使用react-cropper完成图片的上传剪切，缩放等功能，写这个原因主要是闲不住"></a>2,使用<code>react-cropper</code>完成图片的上传剪切，缩放等功能，写这个原因主要是闲不住</h4><h4 id="案例展示"><a href="#案例展示" class="headerlink" title="案例展示"></a>案例展示</h4><p><img src="/record-blog/2021/02/13/20200604/image-20200604205113577.png" alt="image-20200604205113577"></p>
+<h5 id="代码实现方式"><a href="#代码实现方式" class="headerlink" title="代码实现方式"></a>代码实现方式</h5><p><img src="/record-blog/2021/02/13/20200604/image-20200604205236296.png" alt="image-20200604205236296"></p>
 <p>点击上传文件的按钮，把avatarModalVisible设置为true，在react的jsx里面不要写if，显示弹框，可以看出上图代码，传给了modal两个参数，分别是弹框是否显示，还有一个就是选择的文件，下面就是点击按钮的方法</p>
 <pre class="line-numbers language-react" data-language="react"><code class="language-react">const handlFileChange &#x3D; e &#x3D;&gt; &#123;
   e.persist();
@@ -387,9 +387,9 @@
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>在modal里，读取对应的文件，<code>readAsDataURL</code> 方法会读取指定的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Blob"><code>Blob</code></a> 或 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/File"><code>File</code></a> 对象。读取操作完成的时候，<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader/readyState"><code>readyState</code></a> 会变成已完成<code>DONE</code>，并触发 <code>loadend</code> 事件，同时 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader/result"><code>result</code></a> 属性将包含一个<code>data:</code>URL格式的字符串（base64编码）以表示所读取文件的内容。</p>
-<p><img src="/record-blog/.io//image-20200604210018839.png" alt="image-20200604210018839"></p>
+<p><img src="/record-blog/2021/02/13/20200604/image-20200604210018839.png" alt="image-20200604210018839"></p>
 <p>在点击保存按钮的时候转为blob格式，我用的是redux存储起来，在父级页面使用</p>
-<p><img src="/record-blog/.io//image-20200604210118479.png" alt="image-20200604210118479"></p>
+<p><img src="/record-blog/2021/02/13/20200604/image-20200604210118479.png" alt="image-20200604210118479"></p>
 <p>AvatarModal.js</p>
 <pre class="line-numbers language-react" data-language="react"><code class="language-react">import React, &#123; useState, useEffect, useCallback, useRef &#125; from &#39;react&#39;
 import &#123; Button &#125; from &#39;antd&#39;;
@@ -455,7 +455,7 @@ export default AvatarModal
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这样在父组件中获取，并且赋值给img的src就可以</p>
-<p><img src="/record-blog/.io//image-20200604210347613.png" alt="image-20200604210347613"></p>
+<p><img src="/record-blog/2021/02/13/20200604/image-20200604210347613.png" alt="image-20200604210347613"></p>
 <p>userInfo.js（父组件）</p>
 <pre class="line-numbers language-react" data-language="react"><code class="language-react">import React, &#123; useState, useEffect &#125; from &#39;react&#39;
 import &#123; Card, Form, Input, Button, Row, Col, Avatar, message &#125; from &#39;antd&#39;;
@@ -574,7 +574,7 @@ const mapStateToProps &#x3D; state &#x3D;&gt; &#123;
 export default connect(mapStateToProps)(UserInfo)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>app.js</p>
 <h5 id="3-实现mock-token-react-redux的登录验证"><a href="#3-实现mock-token-react-redux的登录验证" class="headerlink" title="3.实现mock+token+react-redux的登录验证"></a>3.实现mock+token+react-redux的登录验证</h5><p>mock的接口是自己瞎写的只是返回了一个假的token而已:sweat_smile:</p>
-<p><img src="/record-blog/.io//image-20200604211008784.png" alt="image-20200604211008784"></p>
+<p><img src="/record-blog/2021/02/13/20200604/image-20200604211008784.png" alt="image-20200604211008784"></p>
 <p>在这里提交按钮这里触发loginUser这个方法，这里的路由跳转使用的是useHistory</p>
 <pre class="line-numbers language-react" data-language="react"><code class="language-react">import &#123; USER_INFO, SET_CURRENT_USER &#125; from &#39;.&#x2F;constants&#39;
 import &#123; useHistory &#125; from &quot;react-router-dom&quot;;
@@ -604,9 +604,9 @@ export const logoutUser &#x3D; () &#x3D;&gt; dispatch &#x3D;&gt; &#123;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>上面就是我store里面action的方法，当然没有这么顺利:ice_cream:</p>
-<p><img src="/record-blog/.io//image-20200604211407639.png" alt="image-20200604211407639"></p>
+<p><img src="/record-blog/2021/02/13/20200604/image-20200604211407639.png" alt="image-20200604211407639"></p>
 <p>他给我报错了，没错是因为我在action里面使用了异步的方法，不急不急，上网百度，知道了，需要下载react-thunk中间件，于是我配了，不出意外的好了， <strong>thunk的原理，可以在actionCreators里通过返回一个函数，然后就可以在函数里编写某些异步操作了，待异步操作结束，最后通过传入的store.dispatch，发出action通知给Store要进行状态更新</strong> 。</p>
-<p><img src="/record-blog/.io//image-20200604211540583.png" alt="image-20200604211540583"></p>
+<p><img src="/record-blog/2021/02/13/20200604/image-20200604211540583.png" alt="image-20200604211540583"></p>
 <p>reducer.js</p>
 <pre class="line-numbers language-react" data-language="react"><code class="language-react">import * as actionTypes from &#39;.&#x2F;constants&#39;;
 import &#123; fromJS &#125; from &#39;immutable&#39;;
@@ -656,17 +656,17 @@ const mapStateToProps &#x3D; state &#x3D;&gt; &#123;
   &#125;
 &#125;
 export default connect(mapStateToProps)(RootContainer);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>app.js,在使用redirect的时候不能直接使用对应的组件，路由有执行顺序应该先注册一下<br><img src="/record-blog/.io//185147_82c86039_5266997.png" alt="输入图片说明"></p>
+<p>app.js,在使用redirect的时候不能直接使用对应的组件，路由有执行顺序应该先注册一下<br><img src="/record-blog/2021/02/13/20200604/185147_82c86039_5266997.png" alt="输入图片说明"></p>
 <p>上面代码的主要意思是获取token，判断有没有token，如果没有跳转到登录页，如果有展示页面</p>
 <h4 id="以上内容是我星期一到星期三的一些工作内容，下面的是星期四到星期五的工作内容"><a href="#以上内容是我星期一到星期三的一些工作内容，下面的是星期四到星期五的工作内容" class="headerlink" title="以上内容是我星期一到星期三的一些工作内容，下面的是星期四到星期五的工作内容"></a>以上内容是我星期一到星期三的一些工作内容，下面的是星期四到星期五的工作内容</h4><p>用的是vue的antd.design.pro，因为这个项目是之前别人把架子都已经搭好了，直接用的是pro，个人建议不要用，因为太重</p>
-<h4 id="内容展示"><a href="#内容展示" class="headerlink" title="内容展示"></a>内容展示</h4><p><img src="/record-blog/.io//image-20200604212742666.png" alt="image-20200604212742666"></p>
-<p><img src="/record-blog/.io//image-20200604212823982.png" alt="image-20200604212823982"></p>
+<h4 id="内容展示"><a href="#内容展示" class="headerlink" title="内容展示"></a>内容展示</h4><p><img src="/record-blog/2021/02/13/20200604/image-20200604212742666.png" alt="image-20200604212742666"></p>
+<p><img src="/record-blog/2021/02/13/20200604/image-20200604212823982.png" alt="image-20200604212823982"></p>
 <p>，因为都有现成的所以花了一天时间就写完了，其中也没有遇到什么问题，只能说是对antd.design框架的一个简单应用，说一说印象比较深的地方</p>
-<p><img src="/record-blog/.io//image-20200604213045022.png" alt="image-20200604213045022"></p>
+<p><img src="/record-blog/2021/02/13/20200604/image-20200604213045022.png" alt="image-20200604213045022"></p>
 <p>下面的taskForm就是子组件，简单来说就是父子组件的传值。通过父组件让子组件显示和隐藏，这里用个sync，把v-show写在子组件里面，但是这里就不要用v-show了不起作用，用他组件封装好的visible</p>
-<p><img src="/record-blog/.io//image-20200604213203482.png" alt="image-20200604213203482"></p>
+<p><img src="/record-blog/2021/02/13/20200604/image-20200604213203482.png" alt="image-20200604213203482"></p>
 <p>把控制权交给子组件</p>
-<p><img src="/record-blog/.io//image-20200604213255087.png" alt="image-20200604213255087"></p>
+<p><img src="/record-blog/2021/02/13/20200604/image-20200604213255087.png" alt="image-20200604213255087"></p>
 <p>taskForm,因为用的是一个表单，添加和编辑做个判断就行</p>
 <pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
   &lt;!-- modal就不要用v-show直接用他提供的visible --&gt;

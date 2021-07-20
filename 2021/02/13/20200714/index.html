@@ -361,9 +361,9 @@
 <!-- 由于我们公司仿照的是这个网站 http://cesium.marsgis.cn/examples.html#feature-feature-arcgis
 所以我们把echarts和cesiumjs做了一个结合封装成了我们自己的一个npm包，目前前端页面已经基本完善，案例内容也是封装了将近四十个 -->
 
-<p><img src="/record-blog/.io//image-20200714155215684.png" alt="image-20200714155215684"></p>
+<p><img src="/record-blog/2021/02/13/20200714/image-20200714155215684.png" alt="image-20200714155215684"></p>
 <p>可以看到这里的地图有很多种，我们也是抽取了其中比较有代表性的几个案例，可以下载<code>cesiumlab2</code>这个软件，来帮助我们完成，点击影像-&gt;在线-&gt;获取服务地址</p>
-<p><img src="/record-blog/.io//image-20200714155444188.png" alt="image-20200714155444188"></p>
+<p><img src="/record-blog/2021/02/13/20200714/image-20200714155444188.png" alt="image-20200714155444188"></p>
 <p>获取这个地址之后使用我们自己封装的插件</p>
 <pre class="line-numbers language-none"><code class="language-none">useEffect(() &#x3D;&gt; &#123;
     const earth &#x3D; new Xt.Earth(&#39;earthContainer&#39;, &#123;
@@ -387,9 +387,9 @@
   &#125;, []);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>当然谷歌地图有很多种，比如谷歌电子，谷歌影像，谷歌影像标注等等，所以目前我是写的一个下拉框如图所示</p>
-<p><img src="/record-blog/.io//image-20200714155909788.png" alt="image-20200714155909788"></p>
+<p><img src="/record-blog/2021/02/13/20200714/image-20200714155909788.png" alt="image-20200714155909788"></p>
 <p>使用react-dat-gui组件的DatSelect方法</p>
-<p><img src="/record-blog/.io//image-20200714155950853.png" alt="image-20200714155950853"></p>
+<p><img src="/record-blog/2021/02/13/20200714/image-20200714155950853.png" alt="image-20200714155950853"></p>
 <p>可以看到我obj对象里面的value部分是一个变量，对应的就是我需要加载的地图类型</p>
 <p>代码如下</p>
 <pre class="line-numbers language-react" data-language="react"><code class="language-react">&#x2F;&#x2F;1.通过使用指定的URL模板请求图像,google地图
@@ -402,9 +402,9 @@
     &#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>之前自己对于DatSelect的用法一直都是这么用，后来发现没必要这么麻烦，因为DatSelect为我们封装了方法</p>
-<p><img src="/record-blog/.io//image-20200714160338964.png" alt="image-20200714160338964"></p>
+<p><img src="/record-blog/2021/02/13/20200714/image-20200714160338964.png" alt="image-20200714160338964"></p>
 <p>可以从源码中看到，我们可以通过传入optionLables，在根据索引获取到对应的值，于是可以这样写</p>
-<p><img src="/record-blog/.io//image-20200714160545010.png" alt="image-20200714160545010"></p>
+<p><img src="/record-blog/2021/02/13/20200714/image-20200714160545010.png" alt="image-20200714160545010"></p>
 <p>在使用天地图的时候要注意，现在使用所有的天地图都需要token，可以自己注册，也可以在api上面注册<a target="_blank" rel="noopener" href="http://lbs.tianditu.gov.cn/server/MapService.html">http://lbs.tianditu.gov.cn/server/MapService.html</a></p>
 <p>但是请求的网址最好还是不要看这个api，因为我试过都不可以，大概应该是这种格式</p>
 <pre class="line-numbers language-react" data-language="react"><code class="language-react">const imagery &#x3D; new Xt.ImageryLayer(&#123;

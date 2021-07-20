@@ -362,10 +362,10 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h4 id="vue中如何使用svg"><a href="#vue中如何使用svg" class="headerlink" title="vue中如何使用svg"></a>vue中如何使用svg</h4><p>我使用的是svg-sprite-loader插件</p>
-<p><img src="/record-blog/.io//image-20201102102213476.png" alt="image-20201102102213476"></p>
+<p><img src="/record-blog/2021/02/13/20201102/image-20201102102213476.png" alt="image-20201102102213476"></p>
 <p>在public同级目录下新建icons文件夹，在分别创建svg文件夹和index.js文件</p>
 <p>在封装一个SvgIcon组件</p>
-<p><img src="/record-blog/.io//image-20201102102353498.png" alt="image-20201102102353498"></p>
+<p><img src="/record-blog/2021/02/13/20201102/image-20201102102353498.png" alt="image-20201102102353498"></p>
 <p>在vue.config.js配置</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function-variable function">chainWebpack</span><span class="token operator">:</span> <span class="token parameter">config</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
     isProd <span class="token operator">&amp;&amp;</span> config<span class="token punctuation">.</span><span class="token function">plugin</span><span class="token punctuation">(</span><span class="token string">'optimize-css'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">tap</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">[</span>options<span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
@@ -393,7 +393,7 @@
   <span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>使用时，通过className定义类名</p>
-<p><img src="/record-blog/.io//image-20201102102609148.png" alt="image-20201102102609148"></p>
+<p><img src="/record-blog/2021/02/13/20201102/image-20201102102609148.png" alt="image-20201102102609148"></p>
 <p>SvgIcon.vue</p>
 <pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
     &lt;svg :class&#x3D;&quot;svgClass&quot; aria-hidden&#x3D;&quot;true&quot; v-on&#x3D;&quot;$listeners&quot;&gt;
@@ -479,7 +479,7 @@ Vue<span class="token punctuation">.</span><span class="token function">componen
 <span class="token function">requireAll</span><span class="token punctuation">(</span>req<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>最后在main.js引入</p>
-<p><img src="/record-blog/.io//image-20201102102803376.png" alt="image-20201102102803376"></p>
+<p><img src="/record-blog/2021/02/13/20201102/image-20201102102803376.png" alt="image-20201102102803376"></p>
 
                 
             </div>

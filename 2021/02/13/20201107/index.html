@@ -363,15 +363,15 @@
             <div id="articleContent">
                 <h3 id="react项目配置"><a href="#react项目配置" class="headerlink" title="react项目配置"></a>react项目配置</h3><p>之前分环境打包部署在package.json里配置，都没有问题，今天部署的时候居然发现没生效，然后直接用他的内置环境变量获取</p>
 <p>之前：</p>
-<p><img src="/record-blog/.io//image-20201107202037083.png" alt="image-20201107202037083"></p>
-<p><img src="/record-blog/.io//image-20201107202157354.png" alt="image-20201107202157354"></p>
+<p><img src="/record-blog/2021/02/13/20201107/image-20201107202037083.png" alt="image-20201107202037083"></p>
+<p><img src="/record-blog/2021/02/13/20201107/image-20201107202157354.png" alt="image-20201107202157354"></p>
 <p>之后：</p>
-<p><img src="/record-blog/.io//image-20201107202219409.png" alt="image-20201107202219409"></p>
-<p><img src="/record-blog/.io//image-20201107202231155.png" alt="image-20201107202231155"></p>
+<p><img src="/record-blog/2021/02/13/20201107/image-20201107202219409.png" alt="image-20201107202219409"></p>
+<p><img src="/record-blog/2021/02/13/20201107/image-20201107202231155.png" alt="image-20201107202231155"></p>
 <p>但是发现好多人都会用到cross-env，那他的优点是什么？<br>不同平台使用唯一指令，无需担心跨平台问题</p>
 <p>部署之后，发现我没点击一个页面都要加载很久，打包之后的请求的一个js有二十几M,于是做了代码分割，也可以压缩</p>
 <p>我是用的是react-app-rewired，于是在config-overrides.js里配置</p>
-<p><img src="/record-blog/.io//image-20201107202652467.png" alt="image-20201107202652467"></p>
+<p><img src="/record-blog/2021/02/13/20201107/image-20201107202652467.png" alt="image-20201107202652467"></p>
 <pre class="line-numbers language-react" data-language="react"><code class="language-react">const code_slicing &#x3D; () &#x3D;&gt; (config) &#x3D;&gt; &#123;
   config.devtool &#x3D; false
   config.optimization &#x3D; &#123;

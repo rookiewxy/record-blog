@@ -362,24 +362,24 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>有可能老板看我这两天比较闲，让我仿照thing.js写一个在web页面更改代码，页面内容实时更新的功能，于是f12将thing.js的控制台打开看看到底用了什么组件</p>
-<p><img src="/record-blog/.io//image-20200718205649186.png" alt="image-20200718205649186"></p>
+<p><img src="/record-blog/2021/02/13/20200718/image-20200718205649186.png" alt="image-20200718205649186"></p>
 <p>看到了monaco-editor,于是用到了react-monaco-editor这个组件，心想不就是一个组件吗，应该很容易把，照着api写应该问题不大，结果我现在用了一次再也不想用第二次了:slightly_smiling_face:,封装不够全面，用起来也并没有感觉很方便</p>
-<p><img src="/record-blog/.io//image-20200718210130403.png" alt="image-20200718210130403"></p>
+<p><img src="/record-blog/2021/02/13/20200718/image-20200718210130403.png" alt="image-20200718210130403"></p>
 <p>value就是需要操作的代码，因为我的需求是更改属性，页面改变。所以把需要更改的部分放到了value中</p>
-<p><img src="/record-blog/.io//image-20200718210258424.png" alt="image-20200718210258424"></p>
+<p><img src="/record-blog/2021/02/13/20200718/image-20200718210258424.png" alt="image-20200718210258424"></p>
 <p>因为我在操作push方法的时候需要操作的是对象，但是我的code是模板字符串呀，刚开始觉得怎么把模板字符串的符号去掉，然后正则写了没啥作用，于是换了一种方法，我写成json类型然后JSON.parse序列化一下不就行了:sweat_smile:</p>
 <p>还有react-monaco-editor的样式问题，可以看到第二张图，直接写了width和height于是刚开始觉得其他属性应该也可以这么写，或者写个style总可以吧，后来都没有效果，于是看了他的源码</p>
-<p><img src="/record-blog/.io//image-20200718210921343.png" alt="image-20200718210921343"></p>
+<p><img src="/record-blog/2021/02/13/20200718/image-20200718210921343.png" alt="image-20200718210921343"></p>
 <p>发现他只是对width和height做了封装，需要写个类名来定义样式</p>
 <p>在完成初步操作之后需要做一下配置，这样才会有提示信息</p>
-<p><img src="/record-blog/.io//image-20200718211321850.png" alt="image-20200718211321850"></p>
+<p><img src="/record-blog/2021/02/13/20200718/image-20200718211321850.png" alt="image-20200718211321850"></p>
 <p>这样就有提示信息了，通过他定义的onchange方法可以拿到更新的内容，可是他定义的是实时的，就是我没修改一个字母他都会打印，显然这不是我想要的，我需要的是修改好了之后的内容，于是发现他压根就没有定义其他的事件了</p>
-<p><img src="/record-blog/.io//image-20200718211552966.png" alt="image-20200718211552966"></p>
+<p><img src="/record-blog/2021/02/13/20200718/image-20200718211552966.png" alt="image-20200718211552966"></p>
 <p>发现他使用了monaco-eidtior，于是搜了一下他有那些方法，发现了onDidBlurEditorText，但是这个react-monaco-editor压根没写，于是自己改了他的代码</p>
-<p><img src="/record-blog/.io//image-20200718211908103.png" alt="image-20200718211908103"></p>
-<p><img src="/record-blog/.io//image-20200718212032350.png" alt="image-20200718212032350"></p>
+<p><img src="/record-blog/2021/02/13/20200718/image-20200718211908103.png" alt="image-20200718211908103"></p>
+<p><img src="/record-blog/2021/02/13/20200718/image-20200718212032350.png" alt="image-20200718212032350"></p>
 <p>然后在定义对应的时间获取对应的代码，最后赋值，就可以了</p>
-<p><img src="/record-blog/.io//image-20200718212210927.png" alt="image-20200718212210927"></p>
+<p><img src="/record-blog/2021/02/13/20200718/image-20200718212210927.png" alt="image-20200718212210927"></p>
 
                 
             </div>

@@ -386,7 +386,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <h4 id="任务队列的执行顺序"><a href="#任务队列的执行顺序" class="headerlink" title="任务队列的执行顺序"></a>任务队列的执行顺序</h4><p>任务队列分为两种类型，宏任务和微任务</p>
 <p>宏任务队列包含任务: <strong><em>a1, a2 , a3</em></strong><br>微任务队列包含任务: <strong><em>b1, b2 , b3</em></strong></p>
 <p>执行顺序为，首先执行宏任务队列开头的任务，也就是 <strong><em>a1</em></strong> 任务，执行完毕后，在执行微任务队列里的所有任务，也就是依次执行**<em>b1, b2 , b3**</em>，执行完后清空微任务队中的任务，接着执行宏任务队中的第二个任务，依次循环</p>
-<p><img src="/record-blog/.io//7515749-2e1fcbed128544cb.webp" alt="7515749-2e1fcbed128544cb"></p>
+<p><img src="/record-blog/2021/02/13/20200715/7515749-2e1fcbed128544cb.webp" alt="7515749-2e1fcbed128544cb"></p>
 <p>宏任务有：</p>
 <ul>
 <li>setTimeout</li>

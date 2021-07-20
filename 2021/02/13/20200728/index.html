@@ -400,17 +400,17 @@
 </tbody></table>
 <p>1.<strong>安装typescript</strong></p>
 <p><code>yarn global add typescript</code></p>
-<p><img src="/record-blog/.io//image-20200729202608107.png" alt="image-20200729202608107"></p>
-<p>如果要编译 TypeScript 文件可以使用命令<code>tsc 1.ts</code>,但是我每一次想要运行还需要在控制台输入tsc xxx.ts，很麻烦，可以在当前文件夹使用<code>tsc --init</code>生成<code>tsconfig.json</code>,文件，安照你的需求配置，比如，我把编译之后的js文件放在了根目录js文件夹的下面<img src="/record-blog/.io//image-20200729202901348.png" alt="image-20200729202901348"></p>
-<p>点击终端-&gt;运行任务-&gt;tsc监视就OK了<img src="/record-blog/.io//image-20200729203022885.png" alt="image-20200729203022885"><br>也可以直接全局安装ts-node<code>npm install ts-node -g</code></p>
+<p><img src="/record-blog/2021/02/13/20200728/image-20200729202608107.png" alt="image-20200729202608107"></p>
+<p>如果要编译 TypeScript 文件可以使用命令<code>tsc 1.ts</code>,但是我每一次想要运行还需要在控制台输入tsc xxx.ts，很麻烦，可以在当前文件夹使用<code>tsc --init</code>生成<code>tsconfig.json</code>,文件，安照你的需求配置，比如，我把编译之后的js文件放在了根目录js文件夹的下面<img src="/record-blog/2021/02/13/20200728/image-20200729202901348.png" alt="image-20200729202901348"></p>
+<p>点击终端-&gt;运行任务-&gt;tsc监视就OK了<img src="/record-blog/2021/02/13/20200728/image-20200729203022885.png" alt="image-20200729203022885"><br>也可以直接全局安装ts-node<code>npm install ts-node -g</code></p>
 <p>关于ts的基本内容我就不说了，毕竟微软出的东西文档都是写得非常好:grin:,可以看<a target="_blank" rel="noopener" href="https://www.tslang.cn/docs/home.html">https://www.tslang.cn/docs/home.html</a></p>
 <p>在网上copy了一个小案例，来看看他的目录结构吧</p>
-<p><img src="/record-blog/.io//image-20200729204402109.png" alt="image-20200729204402109"></p>
+<p><img src="/record-blog/2021/02/13/20200728/image-20200729204402109.png" alt="image-20200729204402109"></p>
 <p>当我看见这个目录的第一个感觉就是@types这个文件夹，因为我也在<code>node_modules</code>里面见到过@types,后来百度之后知道</p>
 <p><b>@types是npm的一个分支，我们把npm包发上去，npm包就会托管到服务器，供大家下载！但是ts为了代码的可复用性，要申明一些静态类型文件，其次，我们把代码push上去的时候，往往有2种方式，一种是把*.d.ts文件push到npm，这种我们只要下载即可，另外一种是我们没有及时把*.d.ts文件push到npm，这个时候我们为了保证能使用从npm下载的ts，我们就必须往@types这个分支上push对应的*.d.ts文件，然后按照npm install -s @types/*** 下载，然后使用，达到一次申明多次使用的目的,当然,我们也可以本地自己写ts文件申明，自己使用，不需要上传上去</b></p>
-<h4 id="案例展示"><a href="#案例展示" class="headerlink" title="案例展示"></a>案例展示</h4><p><img src="/record-blog/.io//image-20200729204950985.png" alt="image-20200729204950985"></p>
+<h4 id="案例展示"><a href="#案例展示" class="headerlink" title="案例展示"></a>案例展示</h4><p><img src="/record-blog/2021/02/13/20200728/image-20200729204950985.png" alt="image-20200729204950985"></p>
 <p>在输入框输入内容，点击add按钮在下方出现对应内容的列表</p>
-<h4 id="代码展示"><a href="#代码展示" class="headerlink" title="代码展示"></a>代码展示</h4><p><img src="/record-blog/.io//image-20200729205155283.png" alt="image-20200729205155283"></p>
+<h4 id="代码展示"><a href="#代码展示" class="headerlink" title="代码展示"></a>代码展示</h4><p><img src="/record-blog/2021/02/13/20200728/image-20200729205155283.png" alt="image-20200729205155283"></p>
 <p>发现使用的都是类型别名，没有使用interface,那他们有什么区别吗？</p>
 <p>interface VS type</p>
 <ul>
@@ -493,12 +493,12 @@ type B &#x3D; typeof div<span aria-hidden="true" class="line-numbers-rows"><span
 <p>在老版本的typescript中，类型别名是不支持extended或者implemented（也不支持从其他类型别名extend/implement）</p>
 <p>在2.7版本后，类型别名可以通过交叉类型实现extend。例如<code>type Cat = Animal &amp; &#123; purrs: true &#125;</code></p>
 <p>根据软件的<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Open/closed_principle">开闭原则</a>, 你应该尽可能的使用interface代替type alias。</p>
-<p><img src="/record-blog/.io//image-20200729210632552.png" alt="image-20200729210632552"></p>
+<p><img src="/record-blog/2021/02/13/20200728/image-20200729210632552.png" alt="image-20200729210632552"></p>
 <p>先从app.tsx文件开始看</p>
 <p>可以分为两部分</p>
-<p><img src="/record-blog/.io//image-20200730194245471.png" alt="image-20200730194245471"></p>
+<p><img src="/record-blog/2021/02/13/20200728/image-20200730194245471.png" alt="image-20200730194245471"></p>
 <p>其中mapState获取状态，mapDispatch获取方法</p>
-<p><img src="/record-blog/.io//image-20200730194626813.png" alt="image-20200730194626813"></p>
+<p><img src="/record-blog/2021/02/13/20200728/image-20200730194626813.png" alt="image-20200730194626813"></p>
 <p>getMapDispatch的方法如下,具体说的是<code>keyof</code>，keyof操作符可以用于获取某种类型的所有键,其返回类型是联合类型。</p>
 <p>首先定义了 T 类型并使用 extends 关键字约束该类型必须是 Actions 类型的子类型，然后使用 keyof 操作符获取 T 类型的所有键，其返回类型是联合类型，最后利用 extends 关键字约束 K类型必须为 keyof T 联合类型的子类型。</p>
 <pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript">export const getMapDispatch &#x3D; &lt;T extends Actions, K extends keyof T&gt;(
@@ -512,9 +512,9 @@ type B &#x3D; typeof div<span aria-hidden="true" class="line-numbers-rows"><span
 <pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript">type ActionProps &#x3D; ReturnType&lt;typeof mapDispatch&gt;
 type StateProps &#x3D; &#123; todos: Todo[] &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p><img src="/record-blog/.io//image-20200730195256889.png" alt="image-20200730195256889"></p>
-<p>有了泛型，我们可以更加具体地描述一个不确定的类型。与any相比，泛型更具有约束力<img src="/record-blog/.io//image-20200730195346756.png" alt="image-20200730195346756"></p>
-<p><img src="/record-blog/.io//image-20200730195612012.png" alt="image-20200730195612012"></p>
+<p><img src="/record-blog/2021/02/13/20200728/image-20200730195256889.png" alt="image-20200730195256889"></p>
+<p>有了泛型，我们可以更加具体地描述一个不确定的类型。与any相比，泛型更具有约束力<img src="/record-blog/2021/02/13/20200728/image-20200730195346756.png" alt="image-20200730195346756"></p>
+<p><img src="/record-blog/2021/02/13/20200728/image-20200730195612012.png" alt="image-20200730195612012"></p>
 <p>TodoForm和TodoList组件</p>
 <pre class="line-numbers language-react" data-language="react"><code class="language-react">type TodoListProps &#x3D; &#123; onToggle: F1&lt;Todo&gt;; onRemove: F1&lt;Todo&gt;; todos: Todo[] &#125;
 export const TodoList: React.FC&lt;TodoListProps&gt; &#x3D; p &#x3D;&gt; (
@@ -544,7 +544,7 @@ export const TodoForm: React.FC&lt;TodoFormProps&gt; &#x3D; p &#x3D;&gt; &#123;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这就是核心代码，他有的代码写的我并没有怎么看懂，毕竟能力有限:sob:,发现他这里的ts文件都会有一个d.ts</p>
-<p><img src="/record-blog/.io//image-20200730200007325.png" alt="image-20200730200007325"></p>
+<p><img src="/record-blog/2021/02/13/20200728/image-20200730200007325.png" alt="image-20200730200007325"></p>
 <p>因为ts最后会编译成 的 js 代码，供他人使用。这个时候，类型信息就丢失了。所以 ts 编译器会自动根据 中的信息，生成对外的 .d.ts文件，和生成的 js 文件搭配使用。其中，js 文件是给运行引擎用的，而 .d.ts文件是给 IDE（智能编辑器）写代码时参考用的。另一种情况是，你的代码不是用 ts 写的，只是希望最后给别人用时能有类型信息作为辅助，那么这种情况下的 .d.ts文件就需要你手写了。</p>
 
                 

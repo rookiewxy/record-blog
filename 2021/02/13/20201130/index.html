@@ -362,9 +362,9 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="2020年11月30日-antd-design-vue"><a href="#2020年11月30日-antd-design-vue" class="headerlink" title="2020年11月30日(antd-design-vue)"></a>2020年11月30日(antd-design-vue)</h3><p>1.关于<code>antd-design</code>中from的踩坑</p>
-<p><img src="/record-blog/.io//image-20201130195333715.png" alt="image-20201130195333715"></p>
+<p><img src="/record-blog/2021/02/13/20201130/image-20201130195333715.png" alt="image-20201130195333715"></p>
 <p>我使用的是from表单里面的input，在提交表单时，通过name来获取值，但输入内容之后，清空，发现在调用提交方法时，这个name还是会有一个字符，可是输入框内什么内容都没有了呀，比如当我输入1111之后，我请清空了，打印出来的name是1,很少疑惑，上网百度之后也没发现为什么，可以看到这个表单是放在一个背景为黑色的div里，这个是我封装的一个组件，因为有很多地方要用到这样的背景,所以封装了一个组件</p>
-<p><img src="/record-blog/.io//image-20201130195739926.png" alt="image-20201130195739926"></p>
+<p><img src="/record-blog/2021/02/13/20201130/image-20201130195739926.png" alt="image-20201130195739926"></p>
 <p>代码如下:</p>
 <pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
   &lt;div class&#x3D;&quot;outerbox&quot; :style&#x3D;&quot;&#123;width, height, padding, transition&#125;&quot;&gt;
@@ -413,15 +413,15 @@ export default &#123;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>我之前的代码是把from放在<code>HeritageContainer</code>这个组件里，后来发现问题就在这个组件上，当我把from代码移出来之后，就好了，莫名其妙:bust_in_silhouette:,现在当我清空之后就没有值了是个空字符串，提交也不会有什么问题，可是我现在要做一个历史记录的功能</p>
-<p><img src="/record-blog/.io//image-20201130200656241.png" alt="image-20201130200656241"></p>
+<p><img src="/record-blog/2021/02/13/20201130/image-20201130200656241.png" alt="image-20201130200656241"></p>
 <p>当我点击其中的一项，对应的内容放在对于的输入框里，那就要用到v-model了，好家伙，用了v-model，之后placeholder不显示了，设置为’’，null都不显示，最后改为undefined就显示了，而且他们的placeholder样式还不一样Cascader ，input，select,查看placeholder的样式</p>
-<p><img src="/record-blog/.io//image-20201130201028000.png" alt="image-20201130201028000"></p>
-<p><img src="/record-blog/.io//image-20201130201051188.png" alt="image-20201130201051188"></p>
+<p><img src="/record-blog/2021/02/13/20201130/image-20201130201028000.png" alt="image-20201130201028000"></p>
+<p><img src="/record-blog/2021/02/13/20201130/image-20201130201051188.png" alt="image-20201130201051188"></p>
 <p>好了，就可以看placeholder的样式了</p>
 <p>对于vue-amap的搜索，真的难用呀，当输入框没有内容时，提示框居然还在，他也没有别的事件，封装的一个组件，本来想通过ref来获取value，压根获取不了</p>
-<p><img src="/record-blog/.io//image-20201130201159939.png" alt="image-20201130201159939"></p>
+<p><img src="/record-blog/2021/02/13/20201130/image-20201130201159939.png" alt="image-20201130201159939"></p>
 <p>2.表格合并</p>
-<p>根据不同的数据，对应生成不同的表格格式，antd的table就提供了一个方法，element也是<img src="/record-blog/.io//image-20201130201604405.png" alt="image-20201130201604405"></p>
+<p>根据不同的数据，对应生成不同的表格格式，antd的table就提供了一个方法，element也是<img src="/record-blog/2021/02/13/20201130/image-20201130201604405.png" alt="image-20201130201604405"></p>
 <p>提供了一个customRender方法，在封装一个mergeCells方法</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">mergeCells</span> <span class="token punctuation">(</span><span class="token parameter">text<span class="token punctuation">,</span> data<span class="token punctuation">,</span> key<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// 上一行该列数据是否一样</span>
@@ -441,7 +441,7 @@ export default &#123;
 
 <p>3.v-show和v-if</p>
 <p>都知道v-show就是普通的显示和隐藏，但是v-if是重新创建和生成，但是有时候写着写着就没有注意那么多，多人开发的时候更不用说了，</p>
-<p><img src="/record-blog/.io//image-20201130201940821.png" alt="image-20201130201940821"></p>
+<p><img src="/record-blog/2021/02/13/20201130/image-20201130201940821.png" alt="image-20201130201940821"></p>
 <p>这是同事加的判断，是一个更加滑动鼠标，使地图缩放，根据缩放的距离显示隐藏对应的组件，这个base-box之前是v-if，当我缩放到一定的距离，这个组件就销毁了，所以当我监听他里面的属性时，咋就没反应？？？还以为是我的vuex写的有问题，检查了好久,唉！vue和redux都是基于flux的思想、模式</p>
 <p>4.transtion</p>
 <p>有时候的折叠效果，如果直接设置width或者其他的属性就会很单调，加上一个transtion就会好很多，因为有一个元素的height不确定，我就想用auto，折叠的时候就是0,结果没效果，后来发现设置具体值就可以,也可以使用可以使用 max-height 进行 hack</p>

@@ -363,20 +363,20 @@
             <div id="articleContent">
                 <p>案例展示的图片就没有了，因为需要连数据库才能看到页面的整体效果，由于用的是公司的电脑，所以自己的电脑没有数据库的数据，看不到效果图片，之前也在笔记里面说过，做的一个项目是后台管理的类型主要是对菜单和案例进行，增删改查，然后把这些数据相互关联，比如菜单树形结构的生成，菜单和案例之间的关联</p>
 <h4 id="1-egg连接数据库"><a href="#1-egg连接数据库" class="headerlink" title="1.egg连接数据库"></a>1.egg连接数据库</h4><p>在config文件夹下面的config.default.js进行配置，并且在plugin.js下面注册下载的egg-mysql插件</p>
-<p><img src="/record-blog/.io//image-20200621231927440.png" alt="image-20200621231927440"></p>
+<p><img src="/record-blog/2021/02/13/20200621/image-20200621231927440.png" alt="image-20200621231927440"></p>
 <p>service文件夹主要是对数据库的操作，controller主要是讲数据库的内容返回给前端，前端第一个接触的就是controller里面的方法，controller在调用service里面操作数据库的方法，就可以实现基本的流程，因为我现在写的也没啥复杂的东西，就是对数据的增删改查</p>
-<h4 id="2-controller里面的操作"><a href="#2-controller里面的操作" class="headerlink" title="2.controller里面的操作"></a>2.controller里面的操作</h4><p><img src="/record-blog/.io//image-20200621232619378.png" alt="image-20200621232619378"></p>
+<h4 id="2-controller里面的操作"><a href="#2-controller里面的操作" class="headerlink" title="2.controller里面的操作"></a>2.controller里面的操作</h4><p><img src="/record-blog/2021/02/13/20200621/image-20200621232619378.png" alt="image-20200621232619378"></p>
 <p>简单的一个例子，查看菜单列表并且进行分页，使用slice方法，因为这个是菜单列表，就会有，一级，二级，三级，所以最好在后台的时候就做好这些处理，生成树形结构一，前端不用做太多的操作</p>
-<h3 id="3-service-menuInfo"><a href="#3-service-menuInfo" class="headerlink" title="3.service(menuInfo)"></a>3.service(menuInfo)</h3><p><img src="/record-blog/.io//image-20200621232938281.png" alt="image-20200621232938281"></p>
+<h3 id="3-service-menuInfo"><a href="#3-service-menuInfo" class="headerlink" title="3.service(menuInfo)"></a>3.service(menuInfo)</h3><p><img src="/record-blog/2021/02/13/20200621/image-20200621232938281.png" alt="image-20200621232938281"></p>
 <p>对于数据库的设计，我刚开始是有误的，对于每一个菜单我都建了一个表，但是只用一个表就可以，写parent字段，并且也可以写一个deepth知道它在第几级，treeData方法就是生成树形结构的方法，getAllList返回数据库的数据</p>
 <p>当然菜单和案例是有联系的所以会单独写一个方法，因为之前我用的是假数据，页面渲染的时候已经有固定的格式，需要从数据库获取数据并且生成对应的结构</p>
-<p><img src="/record-blog/.io//image-20200621233714469.png" alt="image-20200621233714469"></p>
+<p><img src="/record-blog/2021/02/13/20200621/image-20200621233714469.png" alt="image-20200621233714469"></p>
 <p>个人是觉得写得有点复杂，有时间调整调整，这里之前的for循环，之前是使用的map，但是node中的map()、forEach()、for()循环有一个特性：当其函数里面里面有回调它就变成异步，之前使用map得到的是一个promise pending </p>
 <p>解决方法：可以用async的map来处理这种情况，async是nodejs的一个组件，用来解决node的异步问题</p>
 <p>列如</p>
-<p><img src="/record-blog/.io//image-20200621234105667.png" alt="image-20200621234105667"></p>
+<p><img src="/record-blog/2021/02/13/20200621/image-20200621234105667.png" alt="image-20200621234105667"></p>
 <p>findOne是异步函数，可以使用async.map解决，参考网址<a target="_blank" rel="noopener" href="https://blog.csdn.net/sam976/article/details/52330424">https://blog.csdn.net/sam976/article/details/52330424</a></p>
-<h4 id="4-上传图片"><a href="#4-上传图片" class="headerlink" title="4.上传图片"></a>4.上传图片</h4><p><img src="/record-blog/.io//image-20200621234259422.png" alt="image-20200621234259422"></p>
+<h4 id="4-上传图片"><a href="#4-上传图片" class="headerlink" title="4.上传图片"></a>4.上传图片</h4><p><img src="/record-blog/2021/02/13/20200621/image-20200621234259422.png" alt="image-20200621234259422"></p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">&#123;</span> Controller <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"egg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>

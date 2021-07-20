@@ -361,18 +361,18 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="选择不同的内容柱状图-实时变化，这里用到了vuex，echarts"><a href="#选择不同的内容柱状图-实时变化，这里用到了vuex，echarts" class="headerlink" title="选择不同的内容柱状图 实时变化，这里用到了vuex，echarts"></a>选择不同的内容柱状图 实时变化，这里用到了vuex，echarts</h4><p><img src="/record-blog/.io//image-20200922211422499.png" alt="image-20200922211422499"></p>
+                <h4 id="选择不同的内容柱状图-实时变化，这里用到了vuex，echarts"><a href="#选择不同的内容柱状图-实时变化，这里用到了vuex，echarts" class="headerlink" title="选择不同的内容柱状图 实时变化，这里用到了vuex，echarts"></a>选择不同的内容柱状图 实时变化，这里用到了vuex，echarts</h4><p><img src="/record-blog/2021/02/13/20200922/image-20200922211422499.png" alt="image-20200922211422499"></p>
 <p>由于项目的模块比较多所以会使用vuex里面的modules，使用过程当中遇到的问题</p>
-<p><img src="/record-blog/.io//image-20200922211824684.png" alt="image-20200922211824684"></p>
+<p><img src="/record-blog/2021/02/13/20200922/image-20200922211824684.png" alt="image-20200922211824684"></p>
 <p>第一个指的是模块名称，第二个是值，然后在watch里面监听变化，这样是没有问题的，于是我在请求其他列表数据的时候发现取不到值</p>
-<p><img src="/record-blog/.io//image-20200922212023354.png" alt="image-20200922212023354"></p>
+<p><img src="/record-blog/2021/02/13/20200922/image-20200922212023354.png" alt="image-20200922212023354"></p>
 <p>于是换了下面的一种方式,直接state.模块名，这样就可以顺利的获取了</p>
 <pre class="line-numbers language-react" data-language="react"><code class="language-react">...mapState(&#123;
     saturationLineInfoList: (state) &#x3D;&gt; state.equipment.saturationLineInfoList
   &#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>比如父组件向子组件传值时一般是这么写</p>
-<p><img src="/record-blog/.io//image-20200922212238027.png" alt="image-20200922212238027"></p>
+<p><img src="/record-blog/2021/02/13/20200922/image-20200922212238027.png" alt="image-20200922212238027"></p>
 <p>但是代码看着很丑，可以直接传一个对象，在此过程中如果嵌套过多可以使用$props,$attrs</p>
 <ol>
 <li>$attrs包含了父作用域中不作为 prop 被识别 (且获取) 的 attribute 绑定 (class 和 style 除外)。</li>

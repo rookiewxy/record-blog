@@ -390,7 +390,7 @@ changed
 unchanged<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>这说明Javascript中参数传递是以值传递的方式进行传递的，而传递的内容是<strong>它自己本身的引用值</strong></p>
-<p><img src="/record-blog/.io//image-20201021203338813.png" alt="image-20201021203338813"></p>
+<p><img src="/record-blog/2021/02/13/20201022/image-20201021203338813.png" alt="image-20201021203338813"></p>
 <p>解决方法可以使用<code>toRefs</code></p>
 <p>如果你从一个组合函数里返回了响应式对象，在使用函数里把它解构进行使用是会丢失响应性的，解决这个问题你可以把原封不动的返回：</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> toRefs<span class="token punctuation">,</span> reactive <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>

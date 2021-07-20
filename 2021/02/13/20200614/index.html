@@ -364,20 +364,20 @@
                 <p>因为我们公司主要是做三维这一块刚好要用到，于是学习了dat.gui，那么他到底是什么呢？</p>
 <p><strong>dat.GUI 是一个轻量级的图形用户界面库（GUI 组件），使用这个库可以很容易地创建出能够改变代码变量的界面组件。</strong></p>
 <p>简单来说，如果我希望页面改变，我需要修改参数，在保存进行运行，可是dat.gui可以在我们的页面上直接修改参数，并且页面立即发生变化，还是挺优秀的</p>
-<h4 id="案例展示"><a href="#案例展示" class="headerlink" title="案例展示"></a>案例展示</h4><p>这是我们公司自己弄的第一个npm镜像，主要是把这些三维模型引入进来<img src="/record-blog/.io//image-20200614195548279.png" alt="image-20200614195548279"></p>
+<h4 id="案例展示"><a href="#案例展示" class="headerlink" title="案例展示"></a>案例展示</h4><p>这是我们公司自己弄的第一个npm镜像，主要是把这些三维模型引入进来<img src="/record-blog/2021/02/13/20200614/image-20200614195548279.png" alt="image-20200614195548279"></p>
 <p>其实都会有说明文档，参数我们要用dat.gui来配置，主要是一个demo展示，方便客户看了之后知道是干啥的</p>
-<p><img src="/record-blog/.io//image-20200614195728408.png" alt="image-20200614195728408"></p>
+<p><img src="/record-blog/2021/02/13/20200614/image-20200614195728408.png" alt="image-20200614195728408"></p>
 <h4 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h4><p>首先需要创建一个对象，我使用的是react-dat-gui，需要把使用到的数据绑定到dat-gui中</p>
-<p><img src="/record-blog/.io//image-20200614195926513.png" alt="image-20200614195926513"></p>
-<p><img src="/record-blog/.io//image-20200614200131126.png" alt="image-20200614200131126"></p>
+<p><img src="/record-blog/2021/02/13/20200614/image-20200614195926513.png" alt="image-20200614195926513"></p>
+<p><img src="/record-blog/2021/02/13/20200614/image-20200614200131126.png" alt="image-20200614200131126"></p>
 <p>最后在修改这个对象的数据就可以有一个实时的变化</p>
-<p><img src="/record-blog/.io//image-20200614200329607.png" alt="image-20200614200329607"></p>
+<p><img src="/record-blog/2021/02/13/20200614/image-20200614200329607.png" alt="image-20200614200329607"></p>
 <h4 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h4><p>当然开始是需要webpack配置的，但是我之前做过proxy，有一个弊端就是我npm run eject的时候不会暴露配置项，</p>
-<p><img src="/record-blog/.io//image-20200614200525324.png" alt="image-20200614200525324"></p>
+<p><img src="/record-blog/2021/02/13/20200614/image-20200614200525324.png" alt="image-20200614200525324"></p>
 <p>但是react-app-rewired是可以有的，他自己做了封装</p>
-<p><img src="/record-blog/.io//image-20200614200608945.png" alt="配置"></p>
+<p><img src="/record-blog/2021/02/13/20200614/image-20200614200608945.png" alt="配置"></p>
 <p>最后做出来的效果就是这样，这只是一个基本的样子，还有地图引入进来的不同模式，刚刚开始做这方面的东西小白一个，需要学习的地方真的很多，每天进步一点点</p>
-<p><img src="/record-blog/.io//image-20200614195452217.png" alt="demo"></p>
+<p><img src="/record-blog/2021/02/13/20200614/image-20200614195452217.png" alt="demo"></p>
 
                 
             </div>

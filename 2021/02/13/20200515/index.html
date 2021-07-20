@@ -361,23 +361,23 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="react-hook-antd-deisgn-左右菜单联动（2020-5-24）"><a href="#react-hook-antd-deisgn-左右菜单联动（2020-5-24）" class="headerlink" title="react hook antd.deisgn 左右菜单联动（2020.5.24）"></a><code>react hook antd.deisgn</code> 左右菜单联动（2020.5.24）</h2><h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a><strong>效果图</strong></h4><p><img src="/record-blog/.io//image-20200524230959499.png" alt="首页"></p>
+                <h2 id="react-hook-antd-deisgn-左右菜单联动（2020-5-24）"><a href="#react-hook-antd-deisgn-左右菜单联动（2020-5-24）" class="headerlink" title="react hook antd.deisgn 左右菜单联动（2020.5.24）"></a><code>react hook antd.deisgn</code> 左右菜单联动（2020.5.24）</h2><h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a><strong>效果图</strong></h4><p><img src="/record-blog/2021/02/13/20200515/image-20200524230959499.png" alt="首页"></p>
 <h4 id="案例说明"><a href="#案例说明" class="headerlink" title="案例说明"></a><strong>案例说明</strong></h4><p>点击左边的侧边栏的切换到对应的内容到顶部，滚动内容看，菜单也随之切换，有一个联动的效果</p>
 <h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>组件拆分，可以分为侧边栏，内容区域，和头部，可以根据<code>antd.design</code>提供的组件,来进行布局，既然左右达到联动的效果，就说明肯定是有交互的，可以根据父级来进行交互</p>
-<p><img src="/record-blog/.io//image-20200524231626179.png" alt="布局代码"></p>
+<p><img src="/record-blog/2021/02/13/20200515/image-20200524231626179.png" alt="布局代码"></p>
 <p>这一个页面其实就是他们的父级，可以定义相关的变量，比如菜单是根据key进行切换，那么可以吧key定义在父级，传到需要联动的组件里面去</p>
-<p><img src="/record-blog/.io//image-20200524231840631.png" alt="image-20200524231840631"></p>
+<p><img src="/record-blog/2021/02/13/20200515/image-20200524231840631.png" alt="image-20200524231840631"></p>
 <p>包括在hook里面父组件需要拿到子组件的一些方法，使用forward</p>
 <p>首先需要在父级先定义一个ref</p>
-<p><img src="/record-blog/.io//image-20200524232009807.png" alt="image-20200524232009807"></p>
+<p><img src="/record-blog/2021/02/13/20200515/image-20200524232009807.png" alt="image-20200524232009807"></p>
 <p>并且传递给子组件</p>
-<p><img src="/record-blog/.io//image-20200524232053248.png" alt="image-20200524232053248"></p>
+<p><img src="/record-blog/2021/02/13/20200515/image-20200524232053248.png" alt="image-20200524232053248"></p>
 <p>然后子组件接收</p>
-<p><img src="/record-blog/.io//image-20200524232127463.png" alt="forwardRef"></p>
+<p><img src="/record-blog/2021/02/13/20200515/image-20200524232127463.png" alt="forwardRef"></p>
 <p>这样父级就可以拿到子组件的方法，需要注意的是不能一起结构赋值，比如{item，ref}，这样会报错，提示只有一个参数，这也算是一个坑吧</p>
 <p>拿到高度之后需要对滚动条进行监听</p>
-<p><img src="/record-blog/.io//image-20200524232456067.png" alt="image-20200524232456067"></p>
-<p><img src="/record-blog/.io//image-20200524232518139.png" alt="防抖函数"></p>
+<p><img src="/record-blog/2021/02/13/20200515/image-20200524232456067.png" alt="image-20200524232456067"></p>
+<p><img src="/record-blog/2021/02/13/20200515/image-20200524232518139.png" alt="防抖函数"></p>
 <p>根据滚动条距离顶部的高度，和各个组件的高度进行判断，切换哪一个key，写了一个防抖函数，提升性能，同样包括监听窗口大小的事件一样</p>
 <h4 id="项目体会"><a href="#项目体会" class="headerlink" title="项目体会"></a>项目体会</h4><p>第一次写react的小案例，觉得不好实现，也是花费了很长的时间去做，做完之后其实就是组件之间的一些通信，传值，和一些简单的逻辑操作，代码的优化，争取每个星期都整理一下这个星期用到的东西</p>
 
