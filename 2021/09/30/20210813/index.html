@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2020年5月, rookie">
+    <meta name="keywords" content="20210813, rookie">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2020年5月 | rookie</title>
+    <title>20210813 | rookie</title>
     <link rel="icon" type="image/png" href="/record-blog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/record-blog/libs/awesome/css/all.css">
@@ -200,12 +200,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/record-blog/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/record-blog/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2020年5月</h1>
+                    <h1 class="description center-align post-title">20210813</h1>
                 </div>
             </div>
         </div>
@@ -321,8 +321,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/record-blog/tags/React/">
-                                <span class="chip bg-color">React</span>
+                            <a href="/record-blog/tags/%E5%85%B6%E4%BB%96/">
+                                <span class="chip bg-color">其他</span>
                             </a>
                         
                     </div>
@@ -337,7 +337,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-07-19
+                    2021-09-30
                 </div>
                 
 
@@ -361,32 +361,72 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="react-hook小案例"><a href="#react-hook小案例" class="headerlink" title="react hook小案例"></a>react hook小案例</h2><h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="https://i.loli.net/2021/01/02/QlFcsfX9v4w8r3J.png" alt="首页展示"></p>
-<p><img src="https://i.loli.net/2021/01/02/aTUju7eFBcbE6md.png" alt="菜单列表"></p>
-<p><img src="https://i.loli.net/2021/01/02/oexSkmfJA7lRc9N.png" alt="新增弹框"></p>
-<p><img src="https://i.loli.net/2021/01/02/5zkFP4vb8DoX1Cf.png" alt="新增弹框"></p>
-<h3 id="案例说明"><a href="#案例说明" class="headerlink" title="案例说明"></a>案例说明</h3><p>使用mock数据完成嵌套表格的增删改查，两个表格主要是对菜单栏和右边内容区域的操作</p>
-<h3 id="代码说明"><a href="#代码说明" class="headerlink" title="代码说明"></a>代码说明</h3><p>1.对axios进行一个简单的封装，创建一个api文件夹，可以在这个文件夹下面分不同的模块，写入对应的接口，这样调整起来也很方便</p>
-<p><img src="https://i.loli.net/2021/01/02/Ico8QKEjB52vhla.png" alt="axios封装"></p>
-<p><img src="https://i.loli.net/2021/01/02/vBTp1UsqcHbx7dM.png" alt="api封装"></p>
-<p>2.使用antd.design的table，实现嵌套表格，把里面的子表格可以拿出来单独当一个组件，写在一个页面，代码量太长，一个页面的代码最好不要超过200行，包括分页也做了个简单的封装，比如页面刷新时，页码总会跳到第一页，怎么能在刷新时停留在当前页</p>
-<p><img src="https://i.loli.net/2021/01/02/7v9SgOonaFBifDt.png" alt="image-20200531113038810.png"></p>
-<p>可以在地址栏增加一个hash值，通过分页的点击方法改变hash值</p>
-<p><img src="https://i.loli.net/2021/01/02/AEwCrJqpF3xGBfW.png" alt="image-20200531114012311.png"></p>
-<p>在使用的页面，获取hash值，传入useeffect里面，useeffect监听到参数变化之后就可以请求接口，在useEffect请求完数据之后使用set方法赋值的时候，会产生undefined的问题，因为useState是异步的所以在useeffect里面直接使用set方法赋值，对应的变量是拿不到值得，对于异步的问题，可以看看这个<a target="_blank" rel="noopener" href="https://juejin.im/post/5dcb5a80e51d4520db19b906#heading-27">https://juejin.im/post/5dcb5a80e51d4520db19b906#heading-27</a><br>useEffect不希望回调函数返回Promise，而是希望不返回任何内容或返回一个函数。作为警告的解决方法，可以使用自调用异步功能<br><img src="https://i.loli.net/2021/01/02/R92Ueh4GlVvuzjr.png" alt="image-20200531114613091.png"></p>
-<p>上面说的刷新页面分页的问题，现在说的是刷新页面，侧边栏会回到设置的默认选中key的位置，但是右边内容的显示并没有对应到相应的路由，所以可以使用useHistory记录路由，并且传入到侧边栏</p>
-<p><img src="https://i.loli.net/2021/01/02/7fAXCe2duIkOo6V.png" alt="image-20200531115642589.png"></p>
-<p>在写修改表单的时候，觉得值传来传去特麻烦，于是写了一个redux,由于刚学习react,对于状态管理这一块并不熟悉，只知道一个redux，后来发现可以使用mobx或者context会更加的方便</p>
-<p><img src="https://i.loli.net/2021/01/02/ylMoCpLTktHxQPD.png" alt="image-20200531115917079.png"></p>
-<p><img src="https://i.loli.net/2021/01/02/6xSEdDoHNX5sqAg.png" alt="image-20200531115949624.png"></p>
-<p>通过触发action改变state</p>
-<p><img src="https://i.loli.net/2021/01/02/4s2RCdApIuxHyVq.png" alt="image-20200531120043428.png"></p>
-<p>在点击编辑按钮的时候直接触发这个方法，把数据传进去</p>
-<p><img src="https://i.loli.net/2021/01/02/TKZzf2IhvlGP9dL.png" alt="image-20200531120216339.png"></p>
-<p>在需要的页面进行获取，这里我使用fromJS,所以要用toJS()转一下</p>
-<p>在上传图片这一块，已经不再使用callback，需要返回一个promise</p>
-<p><img src="https://i.loli.net/2021/01/02/jGIzPd9hUuVTgqH.png" alt="image-20200531120427795.png"></p>
+                <h2 id="搭建UI组件库"><a href="#搭建UI组件库" class="headerlink" title="搭建UI组件库"></a>搭建UI组件库</h2><h4 id="一-组件库文档工具"><a href="#一-组件库文档工具" class="headerlink" title="一.组件库文档工具"></a>一.组件库文档工具</h4><p><img src="https://i.loli.net/2021/09/30/NIO7gYiThp2jmGc.png" alt="image-20210813081511874.png"></p>
+<p>对比这三种之后选用dumi，具体可看<a target="_blank" rel="noopener" href="https://blog.csdn.net/suedar1/article/details/117817982">https://blog.csdn.net/suedar1/article/details/117817982</a></p>
+<h4 id="二-dumi"><a href="#二-dumi" class="headerlink" title="二.dumi"></a>二.<a target="_blank" rel="noopener" href="https://d.umijs.org/zh-CN">dumi</a></h4><ol>
+<li>初始化脚手架可以直接使用<code>@umijs/create-dumi-lib</code> 或 <code>@umijs/create-dumi-app</code> 进行脚手架的创建</li>
+<li>由于直接使用dumi命令创建的脚手架目录单一，并不适合我们的多包管理，我们需要使用lerna来初始化我们的脚手架</li>
+</ol>
+<h4 id="三-lerna和yarn-workspace"><a href="#三-lerna和yarn-workspace" class="headerlink" title="三.lerna和yarn workspace"></a>三.lerna和yarn workspace</h4><ol>
+<li><p>使用lerna init进行项目初始化，会在根目录出现<code>packages</code>、<code>package.json</code>、<code>lerna.json</code>三个文件夹</p>
+</li>
+<li><p><code>package.json</code>中有一点需要注意，他的<code>private</code>必须设置为<code>true</code>，他是多个项目，所以他自己不能直接发布，发布的应该是<code>packages/</code>下面的各个子项目</p>
+</li>
+<li><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// lerna 初始化时的内容</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token string">"packages"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token string">"packages/*"</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token string">"version"</span><span class="token punctuation">:</span> <span class="token string">"0.0.0"</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
+<span class="token comment" spellcheck="true">// 修改为</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token string">"packages"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token string">"packages/*"</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token string">"npmClient"</span><span class="token punctuation">:</span> <span class="token string">"yarn"</span><span class="token punctuation">,</span>
+  <span class="token string">"useWorkspaces"</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 使用yarn workspace</span>
+  <span class="token string">"version"</span><span class="token punctuation">:</span> <span class="token string">"independent"</span> <span class="token comment" spellcheck="true">// 独立模式</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span>pre <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"line-numbers language-none"</span><span class="token operator">></span><span class="token operator">&lt;</span>code <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"language-none"</span><span class="token operator">></span>
+<span class="token number">4</span><span class="token punctuation">.</span> <span class="token operator">&amp;</span>#<span class="token number">96</span><span class="token punctuation">;</span>lerna create 包名<span class="token operator">&amp;</span>#<span class="token number">96</span><span class="token punctuation">;</span>就会在packages目录下出现对应的包，里面默认会用<span class="token operator">&amp;</span>#<span class="token number">96</span><span class="token punctuation">;</span>__test__<span class="token operator">&amp;</span>#<span class="token number">96</span><span class="token punctuation">;</span>（单元测试内容）和<span class="token operator">&amp;</span>#<span class="token number">96</span><span class="token punctuation">;</span>lib<span class="token operator">&amp;</span>#<span class="token number">96</span><span class="token punctuation">;</span>文件夹
+
+<span class="token number">5</span><span class="token punctuation">.</span> <span class="token operator">&amp;</span>#<span class="token number">96</span><span class="token punctuation">;</span>lerna <span class="token keyword">public</span><span class="token operator">&amp;</span>#<span class="token number">96</span><span class="token punctuation">;</span>包发布，发布私有包是注意在当前目录的<span class="token keyword">package</span><span class="token punctuation">.</span>json在加上
+
+   <span class="token operator">&amp;</span>#<span class="token number">96</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">96</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">96</span><span class="token punctuation">;</span>js
+   <span class="token string">"publishConfig"</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+       <span class="token string">"access"</span><span class="token punctuation">:</span> <span class="token string">"public"</span>
+     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&lt;</span>span aria<span class="token operator">-</span>hidden<span class="token operator">=</span><span class="token string">"true"</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"line-numbers-rows"</span><span class="token operator">></span><span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span><span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span><span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span><span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span><span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span><span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span><span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span><span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span><span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span></code></pre></code></pre>
+</li>
+<li><p><code> lerna bootstrap``packages/</code>下面的每个子项目有自己的<code>node_modules</code>，如果将它打开，会发现很多重复的依赖包，这会占用我们大量的硬盘空间。<code>lerna</code>提供了另一个强大的功能：<strong>将子项目的依赖包都提取到最顶层</strong>，我们只需要<strong>先删除子项目的<code>node_modules</code>再跑下面这行命令就行了</strong>：</p>
+</li>
+</ol>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">lerna bootstrap <span class="token operator">--</span>hoist<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">lerna clean <span class="token comment">// 删除子项目的node_modules</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="7">
+<li> 使用<code>lerna bootstrap --hoist</code>虽然可以将值项目的依赖提升到最顶层，但是方式比较粗暴，这会导致一个问题，如果多个子项目依赖同一个第三方库，但是需求的版本不同怎么办？<code>lerna</code>会提升用的最多的版本到顶层，问题来了，如果有的子项目用到的并不是这个版本，就可以出现问题，<code>yarn workspace</code>可以很好的解决这个问题，它会检查每个子项目里面依赖及其版本，如果版本不一样则会留在子项目自己的<code>node_modules</code>里面，只有完全一样的依赖才会提升到顶层，使用<code>yarn workspace</code>的方式也非常简单，在顶层的package.json添加</li>
+</ol>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span>
+  <span class="token string">"workspaces"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">"packages/*"</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="7">
+<li>启动项目直接使用yarn就ok</li>
+</ol>
+<h4 id="四-文件夹目录"><a href="#四-文件夹目录" class="headerlink" title="四.文件夹目录"></a>四.文件夹目录</h4><p>目前在packages里面创建了三个目录<code>xt-ui-hooks</code>，<code>xt-ui-test</code>，<code>xt-ui-utils</code>分别存放hooks、组件主体包，工具包</p>
+<ul>
+<li>xt-ui-test中的style和context参考antd.design的写法</li>
+<li>xt-ui-hooks中的<code>usePrefersColor</code>用于主体切换类</li>
+<li>xt-ui-utils通用方法例如数组和对象</li>
+</ul>
+<h5 id="五-后续补充"><a href="#五-后续补充" class="headerlink" title="五.后续补充"></a>五.后续补充</h5>
                 
             </div>
             <hr/>
@@ -412,7 +452,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://rookiewxy.github.io/record-blog/2021/07/19/202005/">https://rookiewxy.github.io/record-blog/2021/07/19/202005/</a>
+                    <a href="https://rookiewxy.github.io/record-blog/2021/09/30/20210813/">https://rookiewxy.github.io/record-blog/2021/09/30/20210813/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -450,8 +490,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/record-blog/tags/React/">
-                                    <span class="chip bg-color">React</span>
+                                <a href="/record-blog/tags/%E5%85%B6%E4%BB%96/">
+                                    <span class="chip bg-color">其他</span>
                                 </a>
                             
                         </div>
@@ -627,13 +667,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/record-blog/2021/09/30/20210916/">
+                <a href="/record-blog/2021/09/30/20210827/">
                     <div class="card-image">
                         
                         
-                        <img src="/record-blog/medias/featureimages/13.jpg" class="responsive-img" alt="20210916">
+                        <img src="/record-blog/medias/featureimages/6.jpg" class="responsive-img" alt="20210827">
                         
-                        <span class="card-title">20210916</span>
+                        <span class="card-title">20210827</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -657,8 +697,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/record-blog/tags/%E5%85%B6%E4%BB%96/">
-                        <span class="chip bg-color">其他</span>
+                    <a href="/record-blog/tags/TypeScript/">
+                        <span class="chip bg-color">TypeScript</span>
                     </a>
                     
                 </div>
@@ -672,13 +712,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/record-blog/2021/07/18/20210718/">
+                <a href="/record-blog/2021/09/30/20210903/">
                     <div class="card-image">
                         
                         
-                        <img src="/record-blog/medias/featureimages/14.jpg" class="responsive-img" alt="2021年7月18日">
+                        <img src="/record-blog/medias/featureimages/23.jpg" class="responsive-img" alt="20210903">
                         
-                        <span class="card-title">2021年7月18日</span>
+                        <span class="card-title">20210903</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -689,7 +729,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-30
                             </span>
                         <span class="publish-author">
                             
@@ -702,8 +742,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/record-blog/tags/%E5%85%B6%E4%BB%96/">
-                        <span class="chip bg-color">其他</span>
+                    <a href="/record-blog/tags/React/">
+                        <span class="chip bg-color">React</span>
                     </a>
                     
                 </div>

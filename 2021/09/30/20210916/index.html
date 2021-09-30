@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2020年5月, rookie">
+    <meta name="keywords" content="20210916, rookie">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2020年5月 | rookie</title>
+    <title>20210916 | rookie</title>
     <link rel="icon" type="image/png" href="/record-blog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/record-blog/libs/awesome/css/all.css">
@@ -200,12 +200,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/record-blog/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/record-blog/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2020年5月</h1>
+                    <h1 class="description center-align post-title">20210916</h1>
                 </div>
             </div>
         </div>
@@ -321,8 +321,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/record-blog/tags/React/">
-                                <span class="chip bg-color">React</span>
+                            <a href="/record-blog/tags/%E5%85%B6%E4%BB%96/">
+                                <span class="chip bg-color">其他</span>
                             </a>
                         
                     </div>
@@ -337,7 +337,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-07-19
+                    2021-09-30
                 </div>
                 
 
@@ -361,31 +361,125 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="react-hook小案例"><a href="#react-hook小案例" class="headerlink" title="react hook小案例"></a>react hook小案例</h2><h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="https://i.loli.net/2021/01/02/QlFcsfX9v4w8r3J.png" alt="首页展示"></p>
-<p><img src="https://i.loli.net/2021/01/02/aTUju7eFBcbE6md.png" alt="菜单列表"></p>
-<p><img src="https://i.loli.net/2021/01/02/oexSkmfJA7lRc9N.png" alt="新增弹框"></p>
-<p><img src="https://i.loli.net/2021/01/02/5zkFP4vb8DoX1Cf.png" alt="新增弹框"></p>
-<h3 id="案例说明"><a href="#案例说明" class="headerlink" title="案例说明"></a>案例说明</h3><p>使用mock数据完成嵌套表格的增删改查，两个表格主要是对菜单栏和右边内容区域的操作</p>
-<h3 id="代码说明"><a href="#代码说明" class="headerlink" title="代码说明"></a>代码说明</h3><p>1.对axios进行一个简单的封装，创建一个api文件夹，可以在这个文件夹下面分不同的模块，写入对应的接口，这样调整起来也很方便</p>
-<p><img src="https://i.loli.net/2021/01/02/Ico8QKEjB52vhla.png" alt="axios封装"></p>
-<p><img src="https://i.loli.net/2021/01/02/vBTp1UsqcHbx7dM.png" alt="api封装"></p>
-<p>2.使用antd.design的table，实现嵌套表格，把里面的子表格可以拿出来单独当一个组件，写在一个页面，代码量太长，一个页面的代码最好不要超过200行，包括分页也做了个简单的封装，比如页面刷新时，页码总会跳到第一页，怎么能在刷新时停留在当前页</p>
-<p><img src="https://i.loli.net/2021/01/02/7v9SgOonaFBifDt.png" alt="image-20200531113038810.png"></p>
-<p>可以在地址栏增加一个hash值，通过分页的点击方法改变hash值</p>
-<p><img src="https://i.loli.net/2021/01/02/AEwCrJqpF3xGBfW.png" alt="image-20200531114012311.png"></p>
-<p>在使用的页面，获取hash值，传入useeffect里面，useeffect监听到参数变化之后就可以请求接口，在useEffect请求完数据之后使用set方法赋值的时候，会产生undefined的问题，因为useState是异步的所以在useeffect里面直接使用set方法赋值，对应的变量是拿不到值得，对于异步的问题，可以看看这个<a target="_blank" rel="noopener" href="https://juejin.im/post/5dcb5a80e51d4520db19b906#heading-27">https://juejin.im/post/5dcb5a80e51d4520db19b906#heading-27</a><br>useEffect不希望回调函数返回Promise，而是希望不返回任何内容或返回一个函数。作为警告的解决方法，可以使用自调用异步功能<br><img src="https://i.loli.net/2021/01/02/R92Ueh4GlVvuzjr.png" alt="image-20200531114613091.png"></p>
-<p>上面说的刷新页面分页的问题，现在说的是刷新页面，侧边栏会回到设置的默认选中key的位置，但是右边内容的显示并没有对应到相应的路由，所以可以使用useHistory记录路由，并且传入到侧边栏</p>
-<p><img src="https://i.loli.net/2021/01/02/7fAXCe2duIkOo6V.png" alt="image-20200531115642589.png"></p>
-<p>在写修改表单的时候，觉得值传来传去特麻烦，于是写了一个redux,由于刚学习react,对于状态管理这一块并不熟悉，只知道一个redux，后来发现可以使用mobx或者context会更加的方便</p>
-<p><img src="https://i.loli.net/2021/01/02/ylMoCpLTktHxQPD.png" alt="image-20200531115917079.png"></p>
-<p><img src="https://i.loli.net/2021/01/02/6xSEdDoHNX5sqAg.png" alt="image-20200531115949624.png"></p>
-<p>通过触发action改变state</p>
-<p><img src="https://i.loli.net/2021/01/02/4s2RCdApIuxHyVq.png" alt="image-20200531120043428.png"></p>
-<p>在点击编辑按钮的时候直接触发这个方法，把数据传进去</p>
-<p><img src="https://i.loli.net/2021/01/02/TKZzf2IhvlGP9dL.png" alt="image-20200531120216339.png"></p>
-<p>在需要的页面进行获取，这里我使用fromJS,所以要用toJS()转一下</p>
-<p>在上传图片这一块，已经不再使用callback，需要返回一个promise</p>
-<p><img src="https://i.loli.net/2021/01/02/jGIzPd9hUuVTgqH.png" alt="image-20200531120427795.png"></p>
+                <ol>
+<li><h4 id="封装icon组件库"><a href="#封装icon组件库" class="headerlink" title="封装icon组件库"></a>封装icon组件库</h4><p>封装icon组件库，查看antd.design的图标库，可以发现图标都是使用svg，因为svg放大不会失真，也可以修改样式，来看看antd.design怎么写</p>
+</li>
+</ol>
+<p><img src="https://i.loli.net/2021/09/30/EdxYZrtFQvAcs4D.png" alt="image-20210911082402543.png"></p>
+<p>他会单独吧svg抽离出来使用，再分为，三种类型<img src="https://i.loli.net/2021/09/30/XqiuJVm7TabxBfE.png" alt="image-20210911082820036.png">，而且react等框架都可以使用是如何做到的？，还支持按需导入与智能提示，原理就是<code>svg</code> 图标的内容就是 <code>xml</code> 语法，将 <code>svg</code> 内容解析成 <code>asn</code> ，即「抽象节点」 (Abstract Node)，然后实现能渲染该抽象节点的 <code>React</code> 组件即可</p>
+<h4 id="icon-react"><a href="#icon-react" class="headerlink" title="icon-react"></a>icon-react</h4><p>   看一下<code>icon-react</code>文件夹</p>
+<p><img src="https://i.loli.net/2021/09/30/oNmyGbVKDxsg7Rr.png" alt="image-20210911084422897.png"></p>
+<p>可以看到icons文件下的文件都是自动生成，并且分为三种类型，对应icon-svg下的三种类型，随便查看一个文件</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx">&#x2F;&#x2F; GENERATE BY .&#x2F;scripts&#x2F;generate.ts
+&#x2F;&#x2F; DON NOT EDIT IT MANUALLY
+
+import * as React from &#39;react&#39;
+import AccountBookFilledSvg from &#39;@ant-design&#x2F;icons-svg&#x2F;lib&#x2F;asn&#x2F;AccountBookFilled&#39;;
+import AntdIcon, &#123; AntdIconProps &#125; from &#39;..&#x2F;components&#x2F;AntdIcon&#39;;
+
+const AccountBookFilled &#x3D; (
+  props: AntdIconProps,
+  ref: React.MutableRefObject&lt;HTMLSpanElement&gt;,
+) &#x3D;&gt; &lt;AntdIcon &#123;...props&#125; ref&#x3D;&#123;ref&#125; icon&#x3D;&#123;AccountBookFilledSvg&#125; &#x2F;&gt;;
+
+AccountBookFilled.displayName &#x3D; &#39;AccountBookFilled&#39;;
+export default React.forwardRef&lt;HTMLSpanElement, AntdIconProps&gt;(AccountBookFilled);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>可以看到<code>AccountBookFilledSvg</code>传入了<code>AntdIcon</code></p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx">&#x2F;&#x2F; AntdIcon 部分代码如下
+const Icon &#x3D; React.forwardRef&lt;HTMLSpanElement, IconComponentProps&gt;((props, ref) &#x3D;&gt; &#123;
+......
+  return (
+    &lt;span
+      role&#x3D;&quot;img&quot;
+      aria-label&#x3D;&#123;icon.name&#125;
+      &#123;...restProps&#125;
+      ref&#x3D;&#123;ref&#125;
+      tabIndex&#x3D;&#123;iconTabIndex&#125;
+      onClick&#x3D;&#123;onClick&#125;
+      className&#x3D;&#123;classString&#125;
+    &gt;
+      &lt;ReactIcon
+        icon&#x3D;&#123;icon&#125;
+        primaryColor&#x3D;&#123;primaryColor&#125;
+        secondaryColor&#x3D;&#123;secondaryColor&#125;
+        style&#x3D;&#123;svgStyle&#125;
+      &#x2F;&gt;
+    &lt;&#x2F;span&gt;
+  );
+&#125;) as IconBaseComponent&lt;IconComponentProps&gt;;
+
+Icon.displayName &#x3D; &#39;AntdIcon&#39;;
+Icon.getTwoToneColor &#x3D; getTwoToneColor;
+Icon.setTwoToneColor &#x3D; setTwoToneColor;
+
+export default Icon;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>ReactIcon</code>对应的就是iconBase，iconBase的主要功能是动态构建svg组件</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx">&#x2F;&#x2F; 主要代码如下
+export function generate(
+  node: AbstractNode,
+  key: string,
+  rootProps?: &#123; [key: string]: any &#125; | false,
+): any &#123;
+  if (!rootProps) &#123;
+    return React.createElement(
+      node.tag,
+      &#123; key, ...normalizeAttrs(node.attrs) &#125;,
+      (node.children || []).map((child, index) &#x3D;&gt; generate(child, &#96;$&#123;key&#125;-$&#123;node.tag&#125;-$&#123;index&#125;&#96;)),
+    );
+  &#125;
+  return React.createElement(
+    node.tag,
+    &#123;
+      key,
+      ...normalizeAttrs(node.attrs),
+      ...rootProps,
+    &#125;,
+    (node.children || []).map((child, index) &#x3D;&gt; generate(child, &#96;$&#123;key&#125;-$&#123;node.tag&#125;-$&#123;index&#125;&#96;)),
+  );
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其实可以发现刚刚的<code>AccountBookFilledSvg</code>应该是一个对象一样的东西</p>
+<h4 id="SVGO"><a href="#SVGO" class="headerlink" title="SVGO"></a>SVGO</h4><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx">const svg &#x3D; &#39;&lt;?xml version&#x3D;&quot;1.0&quot; ...&gt;&#39;;
+const optimizer &#x3D; new SVGO(&#123;
+  floatPrecision: 2,
+  &#x2F;&#x2F; 通过 plugins 来对内容进行修改，支持自定义 plugin
+  plugins: [],
+&#125;);
+const &#123; data &#125; &#x3D; await optimizer.optimize(svg);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>生成 <code>asn</code>(抽象节点)，类似这样</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">&#123;
+  &quot;tag&quot;: &quot;svg&quot;,
+  &quot;attrs&quot;: &#123; &quot;viewBox&quot;: &quot;0 0 1024 1024&quot;, &quot;focusable&quot;: &quot;false&quot; &#125;,
+  &quot;children&quot;: [
+    &#123;
+      &quot;tag&quot;: &quot;path&quot;,
+      &quot;attrs&quot;: &#123;
+        &quot;d&quot;: &quot;...&quot;
+      &#125;
+    &#125;
+  ]
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>最后根据这些抽象节点动态的生成react组件</p>
+<h4 id="easy-icons"><a href="#easy-icons" class="headerlink" title="easy-icons"></a>easy-icons</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yarn add easy-icons -D<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>使用easy-icons插件来帮助我们完成这些工作</p>
+<p>目录结构</p>
+<p><img src="https://i.loli.net/2021/09/30/XOfUKykhm1jdPo6.png" alt="image-20210916163723418.png"></p>
+<p><img src="https://i.loli.net/2021/09/30/TbtLVJPy3QYD19m.png" alt="image-20210916164314581.png"></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">&#x2F;&#x2F; package.json添加
+  &quot;scripts&quot;: &#123;
+    &quot;icons&quot;: &quot;node scripts&#x2F;generateIcons&quot;
+  &#125;,
+&#x2F;&#x2F; 执行命令
+yarn icons<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -412,7 +506,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://rookiewxy.github.io/record-blog/2021/07/19/202005/">https://rookiewxy.github.io/record-blog/2021/07/19/202005/</a>
+                    <a href="https://rookiewxy.github.io/record-blog/2021/09/30/20210916/">https://rookiewxy.github.io/record-blog/2021/09/30/20210916/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -450,8 +544,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/record-blog/tags/React/">
-                                    <span class="chip bg-color">React</span>
+                                <a href="/record-blog/tags/%E5%85%B6%E4%BB%96/">
+                                    <span class="chip bg-color">其他</span>
                                 </a>
                             
                         </div>
@@ -627,13 +721,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/record-blog/2021/09/30/20210916/">
+                <a href="/record-blog/2021/09/30/20210903/">
                     <div class="card-image">
                         
                         
-                        <img src="/record-blog/medias/featureimages/13.jpg" class="responsive-img" alt="20210916">
+                        <img src="/record-blog/medias/featureimages/23.jpg" class="responsive-img" alt="20210903">
                         
-                        <span class="card-title">20210916</span>
+                        <span class="card-title">20210903</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -657,8 +751,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/record-blog/tags/%E5%85%B6%E4%BB%96/">
-                        <span class="chip bg-color">其他</span>
+                    <a href="/record-blog/tags/React/">
+                        <span class="chip bg-color">React</span>
                     </a>
                     
                 </div>
@@ -672,13 +766,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/record-blog/2021/07/18/20210718/">
+                <a href="/record-blog/2021/07/19/202005/">
                     <div class="card-image">
                         
                         
-                        <img src="/record-blog/medias/featureimages/14.jpg" class="responsive-img" alt="2021年7月18日">
+                        <img src="/record-blog/medias/featureimages/5.jpg" class="responsive-img" alt="2020年5月">
                         
-                        <span class="card-title">2021年7月18日</span>
+                        <span class="card-title">2020年5月</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -689,7 +783,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-19
                             </span>
                         <span class="publish-author">
                             
@@ -702,8 +796,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/record-blog/tags/%E5%85%B6%E4%BB%96/">
-                        <span class="chip bg-color">其他</span>
+                    <a href="/record-blog/tags/React/">
+                        <span class="chip bg-color">React</span>
                     </a>
                     
                 </div>

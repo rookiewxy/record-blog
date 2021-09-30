@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2020年5月, rookie">
+    <meta name="keywords" content="20210827, rookie">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2020年5月 | rookie</title>
+    <title>20210827 | rookie</title>
     <link rel="icon" type="image/png" href="/record-blog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/record-blog/libs/awesome/css/all.css">
@@ -200,12 +200,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/record-blog/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/record-blog/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2020年5月</h1>
+                    <h1 class="description center-align post-title">20210827</h1>
                 </div>
             </div>
         </div>
@@ -321,8 +321,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/record-blog/tags/React/">
-                                <span class="chip bg-color">React</span>
+                            <a href="/record-blog/tags/TypeScript/">
+                                <span class="chip bg-color">TypeScript</span>
                             </a>
                         
                     </div>
@@ -337,7 +337,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-07-19
+                    2021-09-30
                 </div>
                 
 
@@ -361,31 +361,162 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="react-hook小案例"><a href="#react-hook小案例" class="headerlink" title="react hook小案例"></a>react hook小案例</h2><h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="https://i.loli.net/2021/01/02/QlFcsfX9v4w8r3J.png" alt="首页展示"></p>
-<p><img src="https://i.loli.net/2021/01/02/aTUju7eFBcbE6md.png" alt="菜单列表"></p>
-<p><img src="https://i.loli.net/2021/01/02/oexSkmfJA7lRc9N.png" alt="新增弹框"></p>
-<p><img src="https://i.loli.net/2021/01/02/5zkFP4vb8DoX1Cf.png" alt="新增弹框"></p>
-<h3 id="案例说明"><a href="#案例说明" class="headerlink" title="案例说明"></a>案例说明</h3><p>使用mock数据完成嵌套表格的增删改查，两个表格主要是对菜单栏和右边内容区域的操作</p>
-<h3 id="代码说明"><a href="#代码说明" class="headerlink" title="代码说明"></a>代码说明</h3><p>1.对axios进行一个简单的封装，创建一个api文件夹，可以在这个文件夹下面分不同的模块，写入对应的接口，这样调整起来也很方便</p>
-<p><img src="https://i.loli.net/2021/01/02/Ico8QKEjB52vhla.png" alt="axios封装"></p>
-<p><img src="https://i.loli.net/2021/01/02/vBTp1UsqcHbx7dM.png" alt="api封装"></p>
-<p>2.使用antd.design的table，实现嵌套表格，把里面的子表格可以拿出来单独当一个组件，写在一个页面，代码量太长，一个页面的代码最好不要超过200行，包括分页也做了个简单的封装，比如页面刷新时，页码总会跳到第一页，怎么能在刷新时停留在当前页</p>
-<p><img src="https://i.loli.net/2021/01/02/7v9SgOonaFBifDt.png" alt="image-20200531113038810.png"></p>
-<p>可以在地址栏增加一个hash值，通过分页的点击方法改变hash值</p>
-<p><img src="https://i.loli.net/2021/01/02/AEwCrJqpF3xGBfW.png" alt="image-20200531114012311.png"></p>
-<p>在使用的页面，获取hash值，传入useeffect里面，useeffect监听到参数变化之后就可以请求接口，在useEffect请求完数据之后使用set方法赋值的时候，会产生undefined的问题，因为useState是异步的所以在useeffect里面直接使用set方法赋值，对应的变量是拿不到值得，对于异步的问题，可以看看这个<a target="_blank" rel="noopener" href="https://juejin.im/post/5dcb5a80e51d4520db19b906#heading-27">https://juejin.im/post/5dcb5a80e51d4520db19b906#heading-27</a><br>useEffect不希望回调函数返回Promise，而是希望不返回任何内容或返回一个函数。作为警告的解决方法，可以使用自调用异步功能<br><img src="https://i.loli.net/2021/01/02/R92Ueh4GlVvuzjr.png" alt="image-20200531114613091.png"></p>
-<p>上面说的刷新页面分页的问题，现在说的是刷新页面，侧边栏会回到设置的默认选中key的位置，但是右边内容的显示并没有对应到相应的路由，所以可以使用useHistory记录路由，并且传入到侧边栏</p>
-<p><img src="https://i.loli.net/2021/01/02/7fAXCe2duIkOo6V.png" alt="image-20200531115642589.png"></p>
-<p>在写修改表单的时候，觉得值传来传去特麻烦，于是写了一个redux,由于刚学习react,对于状态管理这一块并不熟悉，只知道一个redux，后来发现可以使用mobx或者context会更加的方便</p>
-<p><img src="https://i.loli.net/2021/01/02/ylMoCpLTktHxQPD.png" alt="image-20200531115917079.png"></p>
-<p><img src="https://i.loli.net/2021/01/02/6xSEdDoHNX5sqAg.png" alt="image-20200531115949624.png"></p>
-<p>通过触发action改变state</p>
-<p><img src="https://i.loli.net/2021/01/02/4s2RCdApIuxHyVq.png" alt="image-20200531120043428.png"></p>
-<p>在点击编辑按钮的时候直接触发这个方法，把数据传进去</p>
-<p><img src="https://i.loli.net/2021/01/02/TKZzf2IhvlGP9dL.png" alt="image-20200531120216339.png"></p>
-<p>在需要的页面进行获取，这里我使用fromJS,所以要用toJS()转一下</p>
-<p>在上传图片这一块，已经不再使用callback，需要返回一个promise</p>
-<p><img src="https://i.loli.net/2021/01/02/jGIzPd9hUuVTgqH.png" alt="image-20200531120427795.png"></p>
+                <h2 id="TypeScript-相关问题"><a href="#TypeScript-相关问题" class="headerlink" title="TypeScript 相关问题"></a>TypeScript 相关问题</h2><h4 id="1-枚举和常量枚举（const枚举）的区别"><a href="#1-枚举和常量枚举（const枚举）的区别" class="headerlink" title="1.枚举和常量枚举（const枚举）的区别"></a>1.枚举和常量枚举（const枚举）的区别</h4><ul>
+<li><p>枚举会被编译时会编译成一个对象，可以被当作对象使用</p>
+</li>
+<li><p>const枚举会在ts编译期间被删除，避免额外的性能开销</p>
+<pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;&#x2F; 代码示例
+
+&#x2F;&#x2F; 编译之前
+enum test &#123;
+  a&#x3D;1,
+  b&#x3D;1
+&#125;
+const enum testconst &#123;
+  aa&#x3D;1,
+  bb&#x3D;1
+&#125;
+
+&#x2F;&#x2F; 编译之后
+var test;
+(function (test) &#123;
+    test[test[&quot;a&quot;] &#x3D; 1] &#x3D; &quot;a&quot;;
+    test[test[&quot;b&quot;] &#x3D; 1] &#x3D; &quot;b&quot;;
+&#125;)(test || (test &#x3D; &#123;&#125;));
+
+&#x2F;&#x2F;可以看到编译之后只有enum枚举并没有const枚举<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+</li>
+</ul>
+<h4 id="2-ts中如何获取枚举联合类型的key"><a href="#2-ts中如何获取枚举联合类型的key" class="headerlink" title="2.ts中如何获取枚举联合类型的key?"></a>2.ts中如何获取枚举联合类型的key?</h4>   <pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript">type Name &#x3D; &#123; name: string &#125;
+type Age &#x3D; &#123; age: number &#125;
+type Union &#x3D; Name | Age
+
+&#x2F;&#x2F; infer可以理解为条件句型中的类型推导
+type UnionKey&lt;P&gt; &#x3D; P extends infer P ? keyof P : never
+
+type T &#x3D; UnionKey&lt;Union&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-const和readonly的区别"><a href="#3-const和readonly的区别" class="headerlink" title="3.const和readonly的区别"></a>3.const和readonly的区别</h4><ul>
+<li><p>const用于变量，readonly用于属性</p>
+</li>
+<li><p>const在运行时检查，readonly在编译时检查</p>
+</li>
+<li><p>使用const变量保存的数组，可以使用push，pop等方法。但是如果使用<code>ReadonlyArray&lt;number&gt;</code>声明的数组不能使用push，pop等方法。</p>
+<h4 id="4-ts中-、-、-等符号的含义？"><a href="#4-ts中-、-、-等符号的含义？" class="headerlink" title="4.ts中 ?.、??、!.等符号的含义？"></a>4.ts中 ?.、??、!.等符号的含义？</h4></li>
+<li><p>?. 可选链</p>
+</li>
+<li><p>?? ?? 类似与短路或，??避免了一些意外情况0，NaN以及””,false被视为false值。只有undefind,null被视为false值。</p>
+</li>
+<li><p>!. 在变量名后添加!，可以断言排除undefined和null类型</p>
+</li>
+<li><p>_ , 声明该函数将被传递一个参数，但您并不关心它</p>
+<pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;&#x2F; ??
+let x &#x3D; foo ?? bar();
+&#x2F;&#x2F; 等价于
+let x &#x3D; foo !&#x3D;&#x3D; null &amp;&amp; foo !&#x3D;&#x3D; undefined ? foo : bar();
+
+&#x2F;&#x2F; !.
+let a: string | null | undefined
+a.length &#x2F;&#x2F; error
+a!.length &#x2F;&#x2F; ok
+复制代码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="5-枚举和-object-的区别"><a href="#5-枚举和-object-的区别" class="headerlink" title="5.枚举和 object 的区别"></a>5.枚举和 object 的区别</h4></li>
+<li><p>枚举可以通过枚举的名称，获取枚举的值。也可以通过枚举的值获取枚举的名称。</p>
+</li>
+<li><p>object只能通过key获取value</p>
+</li>
+<li><p>数字枚举在不指定初始值的情况下，枚举值会从0开始递增。</p>
+</li>
+<li><p>虽然在运行时，枚举是一个真实存在的对象。但是使用keyof时的行为却和普通对象不一致。必须使用keyof typeof才可以获取枚举所有属性名。</p>
+<h4 id="6-never、void-的区别"><a href="#6-never、void-的区别" class="headerlink" title="6.never、void 的区别"></a>6.never、void 的区别</h4></li>
+<li><p>never，never表示永远不存在的类型。比如一个函数总是抛出错误，而没有返回值。或者一个函数内部有死循环，永远不会有返回值。函数的返回值就是never类型。</p>
+</li>
+<li><p>void, 没有显示的返回值的函数返回值为void类型。如果一个变量为void类型，只能赋予undefined或者null。</p>
+<h5 id="7-unkonwn和any"><a href="#7-unkonwn和any" class="headerlink" title="7.unkonwn和any"></a>7.unkonwn和any</h5><p>unknown 类型是 TS3 新增的类型，这个类型与 any 类型类似，可以设置任何的类型值，随后可以更改类型。因此，我们可以将变量先设置为字符串类型，然后再将其设置为数字类型，如果事先不检查类型，使用any类型，调用了不存在的方法，编译时不会报错，代码运行时才会发现错误。但是使用unknown 类型不一样，如果不进行类型判断，执行相关操作编译器就会报错。</p>
+</li>
+<li><p>any</p>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2021/09/30/VAJSosYGg2r5tFO.png" alt="image-20210827083734306.png"></p>
+<p>可以看到执行tsc any.ts时并不会报错，但是执行node any.ts会报错</p>
+<ul>
+<li>unknown</li>
+</ul>
+<p><img src="https://i.loli.net/2021/09/30/fEX4hjSusWRk5DJ.png" alt="image-20210827084016159.png"></p>
+<p>它认为unknown类型，这个类型没有push方法，当然会报错，除非先判断类型，如果是相关类型且正确执行相关方法，编译器则会顺利通过，虽然有些麻烦，但是相比 any 类型说，更加安全，在代码编译期间，就能帮我们发现由于类型造成的问题，因此在大多的场景，建议使用 unknown 类型替代 any。</p>
+<pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript">let val:unknown &#x3D; 18;
+val &#x3D; &quot;wxy&quot;;
+val &#x3D; new Array();
+if (val instanceof Array) &#123;
+  val.push(33);
+&#125;
+console.log(val);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="8-interfaces-与-type-之间有什么区别"><a href="#8-interfaces-与-type-之间有什么区别" class="headerlink" title="8.interfaces 与 type 之间有什么区别"></a>8.interfaces 与 type 之间有什么区别</h4><ul>
+<li><p>与接口类型不一样，类型别名可以用于一些其他类型，比如原始类型、联合类型和元组：</p>
+<pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;&#x2F; primitive
+type name &#x3D; string;
+
+&#x2F;&#x2F; object
+type posX &#x3D; &#123; x: number; &#125;;
+type posY &#x3D; &#123; y: number; &#125;;
+
+&#x2F;&#x2F; union
+type pos &#x3D; posX | posY;
+
+&#x2F;&#x2F; tuple
+type Data &#x3D; [number, string];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>接口和类型别名都能够被扩展，但语法有所不同。此外，接口和类型别名不是互斥的。接口可以扩展类型别名，而反过来是不行的。</li>
+<li>类型别名无法被实现(implements)，而接口可以被派生类实现</li>
+<li>类型别名重名时编译器会抛出错误，接口重名时会产生合并</li>
+</ul>
+<h4 id="9-Object、object-和"><a href="#9-Object、object-和" class="headerlink" title="9.Object、object 和 {}"></a>9.Object、object 和 {}</h4><ul>
+<li>object类型:它用于表示非原始类型。</li>
+<li>JavaScript 中以下类型被视为原始类型：<code>string</code>、<code>boolean</code>、<code>number</code>、<code>bigint</code>、<code>symbol</code>、<code>null</code> 和 <code>undefined</code>。</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript">const proto &#x3D; &#123;&#125;;
+
+Object.create(proto);     &#x2F;&#x2F; OK
+Object.create(null);      &#x2F;&#x2F; OK
+Object.create(undefined); &#x2F;&#x2F; Error
+Object.create(1337);      &#x2F;&#x2F; Error
+Object.create(true);      &#x2F;&#x2F; Error
+Object.create(&quot;oops&quot;);    &#x2F;&#x2F; Error<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p>Object类型:它是所有 Object 类的实例的类型。它由以下两个接口来定义、<code>Object</code> 包括原始</p>
+<pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript">interface Object &#123;
+  constructor: Function;
+  toString(): string;
+  toLocaleString(): string;
+  valueOf(): Object;
+  hasOwnProperty(v: PropertyKey): boolean;
+  isPrototypeOf(v: Object): boolean;
+  propertyIsEnumerable(v: PropertyKey): boolean;
+&#125;
+
+
+interface ObjectConstructor &#123;
+  new(value?: any): Object;
+  (value?: any): any;
+  readonly prototype: Object;
+  getPrototypeOf(o: any): any;
+	&#x2F;&#x2F; ...
+&#125;
+
+declare var Object: ObjectConstructor;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>{} 类型:它描述了一个没有成员的对象。当你试图访问这样一个对象的任意属性时，TypeScript 会产生一个编译时错误。</p>
+</li>
+</ul>
 
                 
             </div>
@@ -412,7 +543,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://rookiewxy.github.io/record-blog/2021/07/19/202005/">https://rookiewxy.github.io/record-blog/2021/07/19/202005/</a>
+                    <a href="https://rookiewxy.github.io/record-blog/2021/09/30/20210827/">https://rookiewxy.github.io/record-blog/2021/09/30/20210827/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -450,8 +581,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/record-blog/tags/React/">
-                                    <span class="chip bg-color">React</span>
+                                <a href="/record-blog/tags/TypeScript/">
+                                    <span class="chip bg-color">TypeScript</span>
                                 </a>
                             
                         </div>
@@ -627,13 +758,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/record-blog/2021/09/30/20210916/">
+                <a href="/record-blog/2021/09/30/20210926/">
                     <div class="card-image">
                         
                         
-                        <img src="/record-blog/medias/featureimages/13.jpg" class="responsive-img" alt="20210916">
+                        <img src="/record-blog/medias/featureimages/6.jpg" class="responsive-img" alt="20210926">
                         
-                        <span class="card-title">20210916</span>
+                        <span class="card-title">20210926</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -672,13 +803,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/record-blog/2021/07/18/20210718/">
+                <a href="/record-blog/2021/09/30/20210813/">
                     <div class="card-image">
                         
                         
-                        <img src="/record-blog/medias/featureimages/14.jpg" class="responsive-img" alt="2021年7月18日">
+                        <img src="/record-blog/medias/featureimages/17.jpg" class="responsive-img" alt="20210813">
                         
-                        <span class="card-title">2021年7月18日</span>
+                        <span class="card-title">20210813</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -689,7 +820,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-30
                             </span>
                         <span class="publish-author">
                             

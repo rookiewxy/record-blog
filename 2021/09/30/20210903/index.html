@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2020年5月, rookie">
+    <meta name="keywords" content="20210903, rookie">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2020年5月 | rookie</title>
+    <title>20210903 | rookie</title>
     <link rel="icon" type="image/png" href="/record-blog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/record-blog/libs/awesome/css/all.css">
@@ -200,12 +200,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/record-blog/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/record-blog/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2020年5月</h1>
+                    <h1 class="description center-align post-title">20210903</h1>
                 </div>
             </div>
         </div>
@@ -337,7 +337,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-07-19
+                    2021-09-30
                 </div>
                 
 
@@ -361,31 +361,58 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="react-hook小案例"><a href="#react-hook小案例" class="headerlink" title="react hook小案例"></a>react hook小案例</h2><h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="https://i.loli.net/2021/01/02/QlFcsfX9v4w8r3J.png" alt="首页展示"></p>
-<p><img src="https://i.loli.net/2021/01/02/aTUju7eFBcbE6md.png" alt="菜单列表"></p>
-<p><img src="https://i.loli.net/2021/01/02/oexSkmfJA7lRc9N.png" alt="新增弹框"></p>
-<p><img src="https://i.loli.net/2021/01/02/5zkFP4vb8DoX1Cf.png" alt="新增弹框"></p>
-<h3 id="案例说明"><a href="#案例说明" class="headerlink" title="案例说明"></a>案例说明</h3><p>使用mock数据完成嵌套表格的增删改查，两个表格主要是对菜单栏和右边内容区域的操作</p>
-<h3 id="代码说明"><a href="#代码说明" class="headerlink" title="代码说明"></a>代码说明</h3><p>1.对axios进行一个简单的封装，创建一个api文件夹，可以在这个文件夹下面分不同的模块，写入对应的接口，这样调整起来也很方便</p>
-<p><img src="https://i.loli.net/2021/01/02/Ico8QKEjB52vhla.png" alt="axios封装"></p>
-<p><img src="https://i.loli.net/2021/01/02/vBTp1UsqcHbx7dM.png" alt="api封装"></p>
-<p>2.使用antd.design的table，实现嵌套表格，把里面的子表格可以拿出来单独当一个组件，写在一个页面，代码量太长，一个页面的代码最好不要超过200行，包括分页也做了个简单的封装，比如页面刷新时，页码总会跳到第一页，怎么能在刷新时停留在当前页</p>
-<p><img src="https://i.loli.net/2021/01/02/7v9SgOonaFBifDt.png" alt="image-20200531113038810.png"></p>
-<p>可以在地址栏增加一个hash值，通过分页的点击方法改变hash值</p>
-<p><img src="https://i.loli.net/2021/01/02/AEwCrJqpF3xGBfW.png" alt="image-20200531114012311.png"></p>
-<p>在使用的页面，获取hash值，传入useeffect里面，useeffect监听到参数变化之后就可以请求接口，在useEffect请求完数据之后使用set方法赋值的时候，会产生undefined的问题，因为useState是异步的所以在useeffect里面直接使用set方法赋值，对应的变量是拿不到值得，对于异步的问题，可以看看这个<a target="_blank" rel="noopener" href="https://juejin.im/post/5dcb5a80e51d4520db19b906#heading-27">https://juejin.im/post/5dcb5a80e51d4520db19b906#heading-27</a><br>useEffect不希望回调函数返回Promise，而是希望不返回任何内容或返回一个函数。作为警告的解决方法，可以使用自调用异步功能<br><img src="https://i.loli.net/2021/01/02/R92Ueh4GlVvuzjr.png" alt="image-20200531114613091.png"></p>
-<p>上面说的刷新页面分页的问题，现在说的是刷新页面，侧边栏会回到设置的默认选中key的位置，但是右边内容的显示并没有对应到相应的路由，所以可以使用useHistory记录路由，并且传入到侧边栏</p>
-<p><img src="https://i.loli.net/2021/01/02/7fAXCe2duIkOo6V.png" alt="image-20200531115642589.png"></p>
-<p>在写修改表单的时候，觉得值传来传去特麻烦，于是写了一个redux,由于刚学习react,对于状态管理这一块并不熟悉，只知道一个redux，后来发现可以使用mobx或者context会更加的方便</p>
-<p><img src="https://i.loli.net/2021/01/02/ylMoCpLTktHxQPD.png" alt="image-20200531115917079.png"></p>
-<p><img src="https://i.loli.net/2021/01/02/6xSEdDoHNX5sqAg.png" alt="image-20200531115949624.png"></p>
-<p>通过触发action改变state</p>
-<p><img src="https://i.loli.net/2021/01/02/4s2RCdApIuxHyVq.png" alt="image-20200531120043428.png"></p>
-<p>在点击编辑按钮的时候直接触发这个方法，把数据传进去</p>
-<p><img src="https://i.loli.net/2021/01/02/TKZzf2IhvlGP9dL.png" alt="image-20200531120216339.png"></p>
-<p>在需要的页面进行获取，这里我使用fromJS,所以要用toJS()转一下</p>
-<p>在上传图片这一块，已经不再使用callback，需要返回一个promise</p>
-<p><img src="https://i.loli.net/2021/01/02/jGIzPd9hUuVTgqH.png" alt="image-20200531120427795.png"></p>
+                <h2 id="2021年9月3日React事件池"><a href="#2021年9月3日React事件池" class="headerlink" title="2021年9月3日React事件池"></a>2021年9月3日React事件池</h2><h4 id="一、合成事件"><a href="#一、合成事件" class="headerlink" title="一、合成事件"></a>一、合成事件</h4><p>React 合成事件（SyntheticEvent）是 React <strong>模拟原生 DOM 事件所有能力的一个事件对象</strong>，即浏览器原生事件的跨浏览器包装器。它根据 <a target="_blank" rel="noopener" href="https://www.w3.org/TR/DOM-Level-3-Events/">W3C 规范</a> 来定义合成事件，兼容所有浏览器，拥有与浏览器原生事件相同的接口。</p>
+<p>在 React 中，所有事件都是合成的，不是原生 DOM 事件，但可以通过 <code>e.nativeEvent</code> 属性获取 DOM 事件。</p>
+<p>react使用合成事件的目的</p>
+<ul>
+<li><p>跨浏览器兼容：React 采用的是顶层事件代理机制，能够保证冒泡一致性，可以跨浏览器执行。React 提供的合成事件用来抹平不同浏览器事件对象之间的差异，将不同平台事件模拟合成事件。（react16版本以下）</p>
+</li>
+<li><p>避免垃圾回收：事件对象可能会被频繁创建和回收，因此 React 引入<strong>事件池</strong>，在事件池中获取或释放事件对象。**即 React 事件对象不会被释放掉，而是存放进一个数组中，当事件触发，就从这个数组中弹出，避免频繁地去创建和销毁(垃圾回收)**。</p>
+</li>
+<li><p>方便事件统一管理和事务机制</p>
+</li>
+</ul>
+<h4 id="二、合成事件与原生事件区别"><a href="#二、合成事件与原生事件区别" class="headerlink" title="二、合成事件与原生事件区别"></a>二、合成事件与原生事件区别</h4><ul>
+<li><p>事件名称命名方式不同</p>
+<pre class="line-numbers language-react" data-language="react"><code class="language-react">&#x2F;&#x2F; 原生事件绑定方式
+&lt;button οnclick&#x3D;&quot;handleClick()&quot;&gt;Leo 按钮命名&lt;&#x2F;button&gt;
+      
+&#x2F;&#x2F; React 合成事件绑定方式
+const button &#x3D; &lt;button onClick&#x3D;&#123;handleClick&#125;&gt;Leo 按钮命名&lt;&#x2F;button&gt;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>事件处理函数写法不同</p>
+<pre class="line-numbers language-react" data-language="react"><code class="language-react">&#x2F;&#x2F; 原生事件 事件处理函数写法
+&lt;button οnclick&#x3D;&quot;handleClick()&quot;&gt;Leo 按钮命名&lt;&#x2F;button&gt;
+      
+&#x2F;&#x2F; React 合成事件 事件处理函数写法
+const button &#x3D; &lt;button onClick&#x3D;&#123;handleClick&#125;&gt;Leo 按钮命名&lt;&#x2F;button&gt;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>阻止默认行为方式不同</p>
+<pre class="line-numbers language-react" data-language="react"><code class="language-react">&#x2F;&#x2F; 原生事件阻止默认行为方式
+&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.pingan8787.com&quot; 
+  οnclick&#x3D;&quot;console.log(&#39;Leo 阻止原生事件~&#39;); return false&quot;
+&gt;
+  Leo 阻止原生事件
+&lt;&#x2F;a&gt;
+
+&#x2F;&#x2F; React 事件阻止默认行为方式
+const handleClick &#x3D; e &#x3D;&gt; &#123;
+  e.preventDefault();
+  console.log(&#39;Leo 阻止原生事件~&#39;);
+&#125;
+const clickElement &#x3D; &lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.pingan8787.com&quot; onClick&#x3D;&#123;handleClick&#125;&gt;
+  Leo 阻止原生事件
+&lt;&#x2F;a&gt;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="三、React-事件与原生事件执行顺序"><a href="#三、React-事件与原生事件执行顺序" class="headerlink" title="三、React 事件与原生事件执行顺序"></a>三、React 事件与原生事件执行顺序</h4><p>会先执行原生事件在执行合成事件，看下图，在react17版本执行，React是把事件委托在document上的，React17及以后版本不再把事件委托在document上，而是委托在挂载的容器上了，</p>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2021/09/30/zxEkXKNsPUJbQwy.png" alt="image-20210903090905314.png"></p>
+<h4 id="四、合成事件的事件池"><a href="#四、合成事件的事件池" class="headerlink" title="四、合成事件的事件池"></a>四、合成事件的事件池</h4><p>合成事件对象池，是 React 事件系统提供的一种<strong>性能优化方式</strong>。<strong>合成事件对象在事件池统一管理</strong>，<strong>不同类型的合成事件具有不同的事件池</strong>。（<strong>React 事件池仅支持在 React 16 及更早版本中，在 React 17 已经不使用事件池</strong>）</p>
+<p>在 React 16 及之前的版本，合成事件对象的事件处理函数全部被调用之后，所有属性都会被置为 <code>null</code> 。这时，如果我们需要在事件处理函数运行之后获取事件对象的属性，可以使用 React 提供的 <code>e.persist()</code> 方法，保留所有属性：</p>
 
                 
             </div>
@@ -412,7 +439,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://rookiewxy.github.io/record-blog/2021/07/19/202005/">https://rookiewxy.github.io/record-blog/2021/07/19/202005/</a>
+                    <a href="https://rookiewxy.github.io/record-blog/2021/09/30/20210903/">https://rookiewxy.github.io/record-blog/2021/09/30/20210903/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -627,13 +654,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/record-blog/2021/09/30/20210916/">
+                <a href="/record-blog/2021/09/30/20210813/">
                     <div class="card-image">
                         
                         
-                        <img src="/record-blog/medias/featureimages/13.jpg" class="responsive-img" alt="20210916">
+                        <img src="/record-blog/medias/featureimages/17.jpg" class="responsive-img" alt="20210813">
                         
-                        <span class="card-title">20210916</span>
+                        <span class="card-title">20210813</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -672,13 +699,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/record-blog/2021/07/18/20210718/">
+                <a href="/record-blog/2021/09/30/20210916/">
                     <div class="card-image">
                         
                         
-                        <img src="/record-blog/medias/featureimages/14.jpg" class="responsive-img" alt="2021年7月18日">
+                        <img src="/record-blog/medias/featureimages/13.jpg" class="responsive-img" alt="20210916">
                         
-                        <span class="card-title">2021年7月18日</span>
+                        <span class="card-title">20210916</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -689,7 +716,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-30
                             </span>
                         <span class="publish-author">
                             
