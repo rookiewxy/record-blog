@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="20210926, rookie">
+    <meta name="keywords" content="20211015Form, rookie">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>20210926 | rookie</title>
+    <title>20211015Form | rookie</title>
     <link rel="icon" type="image/png" href="/record-blog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/record-blog/libs/awesome/css/all.css">
@@ -200,12 +200,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/record-blog/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/record-blog/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">20210926</h1>
+                    <h1 class="description center-align post-title">20211015Form</h1>
                 </div>
             </div>
         </div>
@@ -321,8 +321,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/record-blog/tags/%E5%85%B6%E4%BB%96/">
-                                <span class="chip bg-color">其他</span>
+                            <a href="/record-blog/tags/react/">
+                                <span class="chip bg-color">react</span>
                             </a>
                         
                     </div>
@@ -337,7 +337,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-09-30
+                    2021-10-15
                 </div>
                 
 
@@ -361,30 +361,244 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="前端-CLI-脚手架"><a href="#前端-CLI-脚手架" class="headerlink" title="前端 CLI 脚手架"></a>前端 CLI 脚手架</h1><h6 id="一、开发原因"><a href="#一、开发原因" class="headerlink" title="一、开发原因"></a>一、开发原因</h6><p>在创建项目时一般会使用cra，或者vue cli来创建，节约搭建项目的开发时间，但是很多时候并不能满足我们的需求，这个时候需要我们自己去创建一个脚手架</p>
-<h6 id="二、使用到的开发包"><a href="#二、使用到的开发包" class="headerlink" title="二、使用到的开发包"></a>二、使用到的开发包</h6><ul>
-<li><strong>chalk</strong>[1] （控制台字符样式）</li>
-<li><strong>commander</strong>[2] （实现 NodeJS 命令行）</li>
-<li><strong>download</strong>[3] （实现文件远程下载）</li>
-<li><strong>fs-extra</strong>[4] （增强的基础文件操作库）</li>
-<li><strong>handlebars</strong>[5] （实现模板字符替换）</li>
-<li><strong>inquirer</strong>[6] （实现命令行之间的交互）</li>
-<li><strong>log-symbols</strong>[7] （为各种日志级别提供着色符号）</li>
-<li><strong>ora</strong>[8] （优雅终端 Spinner 等待动画）</li>
-<li><strong>update-notifier</strong>[9] （npm 在线检查更新）</li>
+                <h2 id="Form"><a href="#Form" class="headerlink" title="Form"></a>Form</h2><h4 id="一、已完成功能"><a href="#一、已完成功能" class="headerlink" title="一、已完成功能"></a>一、已完成功能</h4><ul>
+<li>验证</li>
+<li>提交</li>
+<li>重置</li>
+<li>设置属性</li>
 </ul>
-<p>可以参考地址<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/iRN4CxP1gFpwyoInUeZtrw">开发前端 CLI 脚手架思路解析</a></p>
-<h6 id="三、部署地址"><a href="#三、部署地址" class="headerlink" title="三、部署地址"></a>三、部署地址</h6><p>在lib/config下有一个，mirror地址链接，也就是一个发布服务的地址，使用的是<a target="_blank" rel="noopener" href="https://vercel.com/dashboard">vertel</a>发布，这个地址我是关联的github的账号，所以他会映射到对应的github的项目地址，例如<a target="_blank" rel="noopener" href="https://github.com/rookiewxy/xt-template-cli,%E6%89%80%E4%BB%A5%E5%9C%A8%60download%60%E6%97%B6%E9%9C%80%E8%A6%81%E6%B7%BB%E5%8A%A0%E5%AF%B9%E5%BA%94%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D%E7%A7%B0">https://github.com/rookiewxy/xt-template-cli,所以在`download`时需要添加对应的文件名称</a></p>
-<p><img src="https://i.loli.net/2021/09/30/DXqWUO75zwPsYSL.png" alt="image-20210926111401894.png"></p>
-<p><img src="https://i.loli.net/2021/09/30/gMTkRwPx2Glao7p.png" alt="image-20210926111856114.png"></p>
-<h6 id="四、vertel简单操作"><a href="#四、vertel简单操作" class="headerlink" title="四、vertel简单操作"></a>四、vertel简单操作</h6><p><img src="https://i.loli.net/2021/09/30/CZymvrDPMJQlOfR.png" alt="image-20210926111617010.png"></p>
-<p>例如登录github账号，在点击创建项目，点击你想要部署的项目</p>
-<p><img src="https://i.loli.net/2021/09/30/cHXJy56IzxTrVhv.png" alt="image-20210926110936454.png"></p>
-<p>省略了一些简单操作，最后你会看到，你创建的项目</p>
-<p><img src="https://i.loli.net/2021/09/30/Mp38jQmTh42cRGF.png" alt="image-20210926111422686.png"></p>
-<p>最后使用<code>vercel --prod</code>命令,千万不要在全局执行，这样会报错，你没有权限，管理员也不行，最好在你当前的目录下执行</p>
-<p><img src="https://i.loli.net/2021/09/30/uOrf4pndRQ1I6y2.png" alt="image-20210926112035939.png"></p>
-<p>最后使用这个地址，就ok了</p>
+<h4 id="二、目录结构"><a href="#二、目录结构" class="headerlink" title="二、目录结构"></a>二、目录结构</h4><p><img src="https://ss.im5i.com/2021/10/15/r3MAq.png" alt="image-20211015153328739"></p>
+<h4 id="三、代码解读"><a href="#三、代码解读" class="headerlink" title="三、代码解读"></a>三、代码解读</h4><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx">&#x2F;&#x2F; form.tsx部分代码
+
+const InternalForm &#x3D; React.forwardRef&lt;unknown, FormProps&gt;((props, ref) &#x3D;&gt; &#123;
+  &#x2F;&#x2F; 使用name组成的对象
+  let store:any &#x3D; &#123;&#125;
+  
+  const &#123; 
+    name,
+    layout&#x3D;&#39;horizontal&#39;, 
+    children, 
+    onFinish, 
+    labelCol,
+    wrapperCol,
+    component:Component&#x3D;&#39;form&#39;,
+    initialValues
+  &#125; &#x3D; props;
+    
+  const [prefixCls, setPrefixCls] &#x3D; useGetPrefixCls();
+  const [refs, setRefs] &#x3D; useRefs&lt;any&gt;();
+  const [model, setModel] &#x3D; useSetState(store)
+...... 
+&lt;FormContext.Provider value&#x3D;&#123;&#123;
+      prefixCls,
+      labelCol,
+      wrapperCol,
+      model,
+      setModel,
+      initialValues
+    &#125;&#125;&gt;
+      &lt;Component 
+        id&#x3D;&#123;name&#125; 
+        className&#x3D;&#123;classes&#125;
+        onSubmit&#x3D;&#123;(event: React.FormEvent&lt;HTMLFormElement&gt;) &#x3D;&gt; &#123;
+          event.preventDefault();
+          event.stopPropagation();
+          onSubmit()
+        &#125;&#125;
+        &gt;&#123;
+          React.Children.map(children,(child, index)&#x3D;&gt;&#123;
+            &#x2F;&#x2F; 具有name属性的字段保存下来，方便验证
+            const &#123; name, valuePropName&#125; &#x3D; (child as any)?.props
+            name &amp;&amp; (store[name] &#x3D; initialValues?.[name]?initialValues[name]:valuePropName&#x3D;&#x3D;&#x3D;&#39;checked&#39;?false:&#39;&#39;)
+            if (!React.isValidElement(child)) return null;
+            return React.cloneElement(child,&#123;
+              ref:setRefs(index)
+            &#125;)
+          &#125;)
+        &#125;&lt;&#x2F;Component&gt;
+    &lt;&#x2F;FormContext.Provider&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>form的主要操作是获取子组件的方法（通过传入的ref），例如验证和重置，因为有三层的嵌套，传参使用context的方式</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx">&#x2F;&#x2F; form-item-input.tsx代码
+import * as React from &#39;react&#39;
+import AsyncValidator from &#39;async-validator&#39;;
+import  c from &#39;classnames&#39;
+import &#123; Col &#125; from &#39;..&#x2F;index&#39;
+import &#123; ColProps &#125; from &#39;..&#x2F;grid&#x2F;col&#39;;
+import &#123; FormContext &#125; from &#39;.&#x2F;context&#39;
+import &#123; isObject &#125; from &#39;@xt-ui&#x2F;utils&#39;;
+
+export interface FormItemInputRef &#123;
+  validate:Function
+&#125;
+export interface FormItemInputProps &#123;
+  colon?: boolean;
+  valuePropName?:string;
+  label?: React.ReactNode;
+  wrapperCol?: ColProps;
+  rules?: any;
+  [propName: string]: any;
+&#125;
+
+const FormItemInput &#x3D; React.forwardRef&lt;unknown, FormItemInputProps&gt;((props, ref) &#x3D;&gt; &#123;
+  const &#123; children, wrapperCol, rules, valuePropName, name &#125; &#x3D; props
+  const formContext &#x3D; React.useContext(FormContext)
+  let &#123; 
+    model, 
+    setModel,
+    prefixCls, 
+    initialValues
+   &#125; &#x3D; formContext
+  
+  const [error, setError] &#x3D; React.useState(&#39;&#39;)
+  
+  &#x2F;&#x2F; 传给父级验证方法
+  React.useImperativeHandle(ref,()&#x3D;&gt;&#123;
+    return &#123;
+        props,
+        validate,
+        resetField
+    &#125;
+  &#125;)
+
+  &#x2F;&#x2F; !如果自己设置了col着覆盖父级的col
+  const mergedWrapperCol: ColProps &#x3D; wrapperCol || formContext.wrapperCol || &#123;&#125;;
+
+  &#x2F;&#x2F; 验证
+  const validate &#x3D; (trigger: string, cb?: Function): boolean | void &#x3D;&gt; &#123;
+    &#x2F;&#x2F; 获取对应rules
+    const rules &#x3D; getFilteredRule(trigger);
+
+    if (!rules || rules.length &#x3D;&#x3D;&#x3D; 0) &#123;
+      if (cb instanceof Function) &#123;
+        cb();
+      &#125;
+
+      return true;
+    &#125;
+    const descriptor &#x3D; &#123;[name]: rules &#125;;
+    &#x2F;&#x2F; 存放rule以字典形式
+    const validator &#x3D; new AsyncValidator(descriptor);
+    const model &#x3D; &#123; [name]: fieldValue() &#125;;
+    validator.validate(model, &#123; firstFields: true &#125;, (errors) &#x3D;&gt; &#123;
+      setError(errors ? errors[0].message! : &#39;&#39;)
+
+      if (cb instanceof Function) &#123;
+        cb(errors);
+      &#125;
+    &#125;);
+  &#125;
+
+  const resetField &#x3D; () &#x3D;&gt; &#123;
+    &#x2F;&#x2F; 清除验证提示
+    setError(&#39;&#39;)
+    if(Object.keys(model).length&gt;0)&#123;
+      &#x2F;&#x2F; !重置如果有initialValues则显示initialValues，否则置空，input的value不能为null或者undefined
+      model[name] &#x3D; initialValues?.[name]?initialValues[name]:valuePropName&#x3D;&#x3D;&#x3D;&#39;checked&#39;?false:&#39;&#39;
+      setModel(model)
+    &#125;
+  &#125;
+
+  &#x2F;&#x2F; 获取rules下的value
+  const fieldValue &#x3D; () &#x3D;&gt; &#123;
+    if (!model || !name) &#123; return; &#125;
+    return rules &amp;&amp; model[name]
+  &#125;
+
+  &#x2F;**
+   * @description: 查找对应的rules
+   * @param &#123;string&#125; trigger 事件类型
+   * @return &#123;*&#125;
+   * @author: wxy
+   *&#x2F;
+  const getFilteredRule &#x3D; (trigger: string): Array&lt;any&gt; &#x3D;&gt; &#123;
+    const rulesList &#x3D; [].concat(rules);
+
+    return rulesList.filter((rule:any) &#x3D;&gt; &#123;
+      if (!rule?.trigger || trigger &#x3D;&#x3D;&#x3D; &#39;&#39;) return true;
+      if (Array.isArray(rule.trigger)) &#123;
+        return rule.trigger.indexOf(trigger) &gt; -1;
+      &#125; else &#123;
+        return rule.trigger &#x3D;&#x3D;&#x3D; trigger;
+      &#125;
+    &#125;).map((rule:any) &#x3D;&gt; Object.assign(&#123;&#125;, rule));
+  &#125;
+
+  &#x2F;**
+   * @description: 通过绑定事件获取实时的值
+   * @param &#123;React&#125; e 事件对象或者选中状态
+   * @author: wxy
+   *&#x2F;  
+  const getControlField &#x3D; (e:React.ChangeEvent&lt;any&gt;) &#x3D;&gt; &#123;
+    let value &#x3D; e?.target?.value
+    &#x2F;&#x2F; console.log(isObject(e));
+    
+    if(name)&#123;
+      &#x2F;&#x2F; !onChange返回的值不一样，需要判断
+      const fieldValue &#x3D; isObject(e) ? value : e
+      model[name] &#x3D; fieldValue
+      validate(&#39;change&#39;);
+      setModel(model)
+
+      &#x2F;&#x2F; 给子组件添加onChange事件会和本身的onChange起冲突
+      React.Children.map(children,(child:any) &#x3D;&gt; &#123;
+          child.props?.onChange?.(fieldValue)
+      &#125;)
+    &#125;
+  &#125;
+
+  return (
+   &lt;Col &#123;...mergedWrapperCol&#125; className&#x3D;&#123;c([&#96;$&#123;prefixCls&#125;-item-control&#96;],&#123;
+    [&#96;$&#123;prefixCls&#125;-item-has-error&#96;]: error !&#x3D;&#x3D; &#39;&#39;
+   &#125;)&#125;&gt;
+    &lt;div
+      className&#x3D;&#123;c([&#96;$&#123;prefixCls&#125;-item-control-content&#96;])&#125;&gt;
+      &#123;
+      &#x2F;* 为表单元素添加交互事件 *&#x2F;
+        React.Children.map(children,child &#x3D;&gt; &#123;
+          return React.cloneElement(child as any,&#123;
+            onChange:getControlField,
+            value:model[name]
+          &#125;)
+        &#125;)
+      &#125;
+    &lt;&#x2F;div&gt;
+    &#123;error &amp;&amp; &lt;div className&#x3D;&#123;c([&#96;$&#123;prefixCls&#125;-item-error&#96;])&#125;&gt;&#123;error&#125;&lt;&#x2F;div&gt;&#125;
+  &lt;&#x2F;Col&gt;
+  )
+&#125;)
+
+export default FormItemInput
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这里会给每一个表单组件都绑定一个onChange和value(核心概念)，或者对应的属性就行操作，有一个model属性，通过父组件传过来，onfinsh也是返回这个model，这个model不能自己定义，要不然会有bug，需要使用useState定义</p>
+<h4 id="四、验证功能"><a href="#四、验证功能" class="headerlink" title="四、验证功能"></a>四、验证功能</h4><p>验证功能使用的是<a target="_blank" rel="noopener" href="https://github.com/yiminghe/async-validator"><code>async-validator</code></a>插件</p>
+<pre class="line-numbers language-ts" data-language="ts"><code class="language-ts">import AsyncValidator from &#39;async-validator&#39;;
+
+&#x2F;&#x2F; 验证
+const validate &#x3D; (trigger: string, cb?: Function): boolean | void &#x3D;&gt; &#123;
+  &#x2F;&#x2F; 获取对应rules
+  const rules &#x3D; getFilteredRule(trigger);
+
+  if (!rules || rules.length &#x3D;&#x3D;&#x3D; 0) &#123;
+    if (cb instanceof Function) &#123;
+      cb();
+    &#125;
+
+    return true;
+  &#125;
+  const descriptor &#x3D; &#123;[name]: rules &#125;;
+  &#x2F;&#x2F; 存放rule以字典形式
+  const validator &#x3D; new AsyncValidator(descriptor);
+  const model &#x3D; &#123; [name]: fieldValue() &#125;;
+  validator.validate(model, &#123; firstFields: true &#125;, (errors) &#x3D;&gt; &#123;
+    setError(errors ? errors[0].message! : &#39;&#39;)
+
+    if (cb instanceof Function) &#123;
+      cb(errors);
+    &#125;
+  &#125;);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -411,7 +625,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://rookiewxy.github.io/record-blog/2021/09/30/20210926/">https://rookiewxy.github.io/record-blog/2021/09/30/20210926/</a>
+                    <a href="https://rookiewxy.github.io/record-blog/2021/10/15/20211015/">https://rookiewxy.github.io/record-blog/2021/10/15/20211015/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -449,8 +663,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/record-blog/tags/%E5%85%B6%E4%BB%96/">
-                                    <span class="chip bg-color">其他</span>
+                                <a href="/record-blog/tags/react/">
+                                    <span class="chip bg-color">react</span>
                                 </a>
                             
                         </div>
@@ -622,9 +836,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/record-blog/2021/10/15/20211015/">
                     <div class="card-image">
@@ -642,9 +857,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -653,6 +868,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -671,13 +887,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/record-blog/2021/09/30/20210827/">
+                <a href="/record-blog/2021/09/30/20210926/">
                     <div class="card-image">
                         
                         
-                        <img src="/record-blog/medias/featureimages/6.jpg" class="responsive-img" alt="20210827">
+                        <img src="/record-blog/medias/featureimages/6.jpg" class="responsive-img" alt="20210926">
                         
-                        <span class="card-title">20210827</span>
+                        <span class="card-title">20210926</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -701,8 +917,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/record-blog/tags/typescript/">
-                        <span class="chip bg-color">typescript</span>
+                    <a href="/record-blog/tags/%E5%85%B6%E4%BB%96/">
+                        <span class="chip bg-color">其他</span>
                     </a>
                     
                 </div>
