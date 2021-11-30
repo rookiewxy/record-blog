@@ -73,6 +73,28 @@
     
   </li>
   
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/record-blog/categories/log" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>日志</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/record-blog/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>存档</span>
+    </a>
+    
+  </li>
+  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
@@ -117,6 +139,28 @@
 			    <i class="fa-fw fas fa-tags"></i>
 			
 			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/record-blog/categories/log" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			日志
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/record-blog/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			存档
 		</a>
           
         </li>
@@ -253,6 +297,51 @@
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/record-blog/2021/02/13/20200724/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/record-blog/medias/featureimages/1.jpg" class="responsive-img" alt="2020年7月24日(code editor)">
+                            
+                            <span class="card-title">2020年7月24日(code editor)</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                上一篇写的是react-monaco-editor的使用，当时写的是json格式，仅仅修改了几个属性，并没有把全部的代码都进行操作，因为当时也有想过操作全部的代码，但是一个字符串又怎么能当方法使用呢，但是老板说，我们要写全部的代码，别人复制
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-13
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                wxy
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/record-blog/tags/%E5%85%B6%E4%BB%96/">
+                            <span class="chip bg-color">其他</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
             
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
@@ -670,53 +759,6 @@ dat.GUI 是一个轻量级的图形用户界面库（GUI 组件），使用这�
             </div>
               <!-- 隐藏某个文章 -->
             
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/record-blog/2021/02/13/20200515/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/record-blog/medias/featureimages/12.jpg" class="responsive-img" alt="2020年5月15日(react)">
-                            
-                            <span class="card-title">2020年5月15日(react)</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                react hook antd.deisgn 左右菜单联动（2020.5.24）效果图
-案例说明点击左边的侧边栏的切换到对应的内容到顶部，滚动内容看，菜单也随之切换，有一个联动的效果
-思路组件拆分，可以分为侧边栏，内容区域，和头部，可以根据
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-13
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                wxy
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/record-blog/tags/React/">
-                            <span class="chip bg-color">React</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
         </div>
     </article>
 
@@ -734,11 +776,12 @@ dat.GUI 是一个轻量级的图形用户界面库（GUI 组件），使用这�
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">5 / 5</div>
+            <div class="center-align b-text-gray">5 / 6</div>
         </div>
         <div class="col s6 m4 l4">
             
-            <a class="right btn-floating btn-large disabled">
+            <a href="/record-blog/page/6/"
+               class="right btn-floating btn-large waves-effect waves-light bg-color">
                 <i class="fas fa-angle-right"></i>
             </a>
             

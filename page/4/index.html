@@ -73,6 +73,28 @@
     
   </li>
   
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/record-blog/categories/log" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>日志</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/record-blog/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>存档</span>
+    </a>
+    
+  </li>
+  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
@@ -117,6 +139,28 @@
 			    <i class="fa-fw fas fa-tags"></i>
 			
 			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/record-blog/categories/log" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			日志
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/record-blog/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			存档
 		</a>
           
         </li>
@@ -253,6 +297,53 @@
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/record-blog/2021/02/13/20201021/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/record-blog/medias/featureimages/6.jpg" class="responsive-img" alt="2020年10月20日(vue.config.js)">
+                            
+                            <span class="card-title">2020年10月20日(vue.config.js)</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                出了一点问题需要在手机上面调试，自信满满的打开utools安装的内网穿透插件，因为之前也试过，一切顺利，结果今天不知道为啥，一直说我请求错误,今天早上试又莫名其妙的好了
+
+于是我换了一下选项，可以了，但是打开地址是502,心想那就换一种方式
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-13
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                wxy
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/record-blog/tags/Vue/">
+                            <span class="chip bg-color">Vue</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
             
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
@@ -686,51 +777,6 @@ TypeScript 与 JavaScr
             </div>
               <!-- 隐藏某个文章 -->
             
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/record-blog/2021/02/13/20200724/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/record-blog/medias/featureimages/1.jpg" class="responsive-img" alt="2020年7月24日(code editor)">
-                            
-                            <span class="card-title">2020年7月24日(code editor)</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                上一篇写的是react-monaco-editor的使用，当时写的是json格式，仅仅修改了几个属性，并没有把全部的代码都进行操作，因为当时也有想过操作全部的代码，但是一个字符串又怎么能当方法使用呢，但是老板说，我们要写全部的代码，别人复制
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-13
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                wxy
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/record-blog/tags/%E5%85%B6%E4%BB%96/">
-                            <span class="chip bg-color">其他</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
         </div>
     </article>
 
@@ -748,7 +794,7 @@ TypeScript 与 JavaScr
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">4 / 5</div>
+            <div class="center-align b-text-gray">4 / 6</div>
         </div>
         <div class="col s6 m4 l4">
             
