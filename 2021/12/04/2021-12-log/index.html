@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2021年11月日志, rookie">
+    <meta name="keywords" content="2021年12月日志, rookie">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2021年11月日志 | rookie</title>
+    <title>2021年12月日志 | rookie</title>
     <link rel="icon" type="image/png" href="/record-blog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/record-blog/libs/awesome/css/all.css">
@@ -244,12 +244,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/record-blog/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/record-blog/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2021年11月日志</h1>
+                    <h1 class="description center-align post-title">2021年12月日志</h1>
                 </div>
             </div>
         </div>
@@ -363,25 +363,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/record-blog/tags/%E5%85%B6%E4%BB%96/">
-                                <span class="chip bg-color">其他</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/record-blog/categories/log/" class="post-category">
-                                log
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -390,7 +377,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-11-30
+                    2021-12-04
                 </div>
                 
 
@@ -414,82 +401,36 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>11/15</p>
-<ul>
-<li>minimist （构建脚本）</li>
+                <h4 id="一、12-1"><a href="#一、12-1" class="headerlink" title="一、12/1"></a>一、12/1</h4><ul>
+<li><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1082524">npm、yarn、pnpm</a></p>
+</li>
+<li><p>npm和yarn的区别：</p>
+<ol>
+<li><code>yarn</code>比<code>npm</code>运行速度快，虽然两者都采用了缓存，但是<code>yarn</code>需互联网连接就能安装本地缓存的依赖项，它提供了离线模式</li>
+<li>yarn比npm确定性更高，因为npm除了做了基本的SHA1哈希之外不执行任何完整性检查，这给安装系统程序带来了安全风险，每个<code>yarn</code>安装都会生成一个类似于<code>npm-shrinkwrap.json</code>的<code>yarn.lock</code>文件，而且它是默认创建的。除了常规信息之外，<code>yarn.lock</code>文件还包含要安装的内容的校验和，以确保使用的库的版本相同，虽然npm中提供了<code>shrinkwrap</code>命令,即使存在npm-shrinkwrap.json这个文件，npm也只会锁定库的版本，而不是库的内容。即便npm现在也能阻止用户多次重复发布库的同一版本</li>
+<li>yarn workspace工作区也是和npm的主要区别之一</li>
+</ol>
+</li>
+<li><p>only-arrow，统一包管理器</p>
+</li>
 </ul>
-<p>11/16</p>
-<ul>
-<li>webpack less module配置</li>
+<h4 id="二、12-2"><a href="#二、12-2" class="headerlink" title="二、12/2"></a>二、12/2</h4><ul>
+<li>vue修改状态后不刷新的几种情况</li>
+<li>关于<code>useDeepCompareEffect</code>的封装，利用<code>lodash/isEqual</code>进行深比较</li>
 </ul>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span>
-                test<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.less$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
-                use<span class="token operator">:</span> <span class="token punctuation">[</span>
-                    <span class="token punctuation">&#123;</span>
-                        loader<span class="token operator">:</span> <span class="token string">"style-loader"</span><span class="token punctuation">,</span>
-                    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-                    <span class="token punctuation">&#123;</span>
-                        loader<span class="token operator">:</span> <span class="token string">"typings-for-css-modules-loader?modules"</span><span class="token punctuation">,</span>
-                        options<span class="token operator">:</span><span class="token punctuation">&#123;</span>
-                            modules<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 使用css modules</span>
-                            namedExport<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 类名导出</span>
-                            camelCase<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 支持驼峰</span>
-                            localIdentName<span class="token operator">:</span> <span class="token string">'[local]__[hash:base64:5]'</span> <span class="token comment">// 定义类名</span>
-                        <span class="token punctuation">&#125;</span>
-                    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-                    <span class="token punctuation">&#123;</span>
-                        loader<span class="token operator">:</span> <span class="token string">"less-loader"</span><span class="token punctuation">,</span>
-                    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-                    <span class="token comment">// 在这里引入要增加的全局less文件</span>
-                    <span class="token punctuation">&#123;</span>
-                        loader<span class="token operator">:</span> <span class="token string">'style-resources-loader'</span><span class="token punctuation">,</span>
-                        options<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-                            patterns<span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./src/styles/index.less'</span><span class="token punctuation">)</span>
-                        <span class="token punctuation">&#125;</span>
-                    <span class="token punctuation">&#125;</span>
-                <span class="token punctuation">]</span><span class="token punctuation">,</span>
-            <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ul>
-<li>在react中使用history模式路由时，需要在devServer中配置historyApiFallback属性</li>
+<h4 id="三、12-3"><a href="#三、12-3" class="headerlink" title="三、12/3"></a>三、12/3</h4><ul>
+<li>vite和webpack的区别<ol>
+<li>由于现代浏览器本身就支持ES Module，会自动向依赖的Module发出请求。vite充分利用这一点，将开发环境下的模块文件，就作为浏览器要执行的文件，而不是像webpack那样进行打包合并</li>
+<li>由于vite在启动的时候不需要打包，也就意味着不需要分析模块的依赖、不需要编译，因此启动速度非常快。当浏览器请求某个模块时，再根据需要对模块内容进行编译。这种按需动态编译的方式，极大的缩减了编译时间，项目越复杂、模块越多，vite的优势越明显。</li>
+<li>在HMR（热更新）方面，当改动了一个模块后，仅需让浏览器重新请求该模块即可，不像webpack那样需要把该模块的相关依赖模块全部编译一次，效率更高</li>
+<li>由于vite利用的是ES Module，因此在代码中（除了vite.config.js里面，这里是node的执行环境）不可以使用CommonJS</li>
+</ol>
+</li>
 </ul>
-<p>11/18</p>
-<ul>
-<li>Form.Item嵌套问题</li>
-</ul>
-<p>11/19</p>
-<ul>
-<li>组件不断闪烁，因为不断自省lazy加载</li>
-<li>图标刷新时，保证echart实例只初始化一次，使用setstate保存</li>
-</ul>
-<p>11/23</p>
-<ul>
-<li>ts39提案（array.at()、Object.hasOwn、findLastIndex、Import Assertions、temporal）</li>
-<li>css模块化对ui组件库样式修改的影响，使用css文件对组件进行样式重置</li>
-</ul>
-<p>11/24</p>
-<ul>
-<li>event loop</li>
-<li>工具质量 = 工具节省的时间/使用工具消耗的时间 (redux, rematch)</li>
-</ul>
-<p>11/25</p>
-<ul>
-<li>React useid(ssr服务端渲染)</li>
-<li>hydrate：ssr时服务器输出的是字符串，而浏览器端需要根据这些字符串完成react的初始化工作，比如创建组件实例，这样才能响应用户操作。这个过程就叫hydrate，有时候也会说re-hydrate，可以把hydrate理解成给干瘪的字符串”注水’’</li>
-</ul>
-<p>11/29</p>
-<ul>
-<li>JSON.stringify（存储函数）</li>
-<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000018828386?utm_source=tag-newest">eval缺点（安全性（数据源）、运行效率、作用域、内存）</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/baidu_25343343/article/details/54849475">包装对象</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq2523208472/article/details/120073693">monaco-editor配置项</a>、缩略图（miniMap）</li>
-</ul>
-<p>11/30</p>
-<ul>
-<li>effects list重构，将遍历链表，重构为采用冒泡的方式遍历树，是因为<code>suspense</code>v18和v16有了区别，在v16版本中，对于不少异步加载的组件，还是会进行<code>render</code>但是会采用display:none的方式隐藏掉，但是在v18中针对<code>Suspense</code>内<strong>「不显示的子树」</strong>做了单独的处理，既不会渲染<code>display: none</code>的内容，也不会执行<code>useEffect</code>回调</li>
-<li>Boolean(document.all)，主要是为了兼容</li>
-<li>useEffect第二个参数最好不要使用引入类型，因为采用的是浅比较，调用的是Object.is()</li>
-<li>渲染问题：<code>React</code>和<code>Vue</code>，react每次参数变化就会造成整个组件的刷新，但是vue并不会，例如computed里面不断刷新，但是整个组件并不会不断的执行，可使用<code>use-deep-compare-effect</code>插件进行优化</li>
+<h4 id="三、12-4"><a href="#三、12-4" class="headerlink" title="三、12/4"></a>三、12/4</h4><ul>
+<li>vue3 sugar</li>
+<li>mst修改state，可通过actions直接修改，但是在进行ui交互时不能直接修改，因为是不可变数据，需要深度clone</li>
+<li><strong>PureComponent</strong>、<strong>useEffect</strong>……浅比较，例如在处理数组时，如果使用push操作，这不会造成更新，以为并没有返回新引用，<strong>那么换言之则说明浅比较对于比较同一个数组是无能为力的</strong>，<strong>避免使用值可能会突变的属性或状态</strong>应该用concat重写成，<strong>我们必须保证浅比较时数组的指针是不相同的</strong></li>
 </ul>
 
                 
@@ -517,7 +458,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://rookiewxy.github.io/record-blog/2021/11/30/2021_11_log/">https://rookiewxy.github.io/record-blog/2021/11/30/2021_11_log/</a>
+                    <a href="https://rookiewxy.github.io/record-blog/2021/12/04/2021-12-log/">https://rookiewxy.github.io/record-blog/2021/12/04/2021-12-log/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -554,11 +495,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/record-blog/tags/%E5%85%B6%E4%BB%96/">
-                                    <span class="chip bg-color">其他</span>
-                                </a>
-                            
+                            <span class="chip bg-color">No tag</span>
                         </div>
                     
                 </div>
@@ -728,9 +665,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/record-blog/2021/12/04/2021-12-log/">
                     <div class="card-image">
@@ -748,9 +686,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -759,6 +697,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -769,13 +708,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/record-blog/2021/10/28/20211028/">
+                <a href="/record-blog/2021/11/30/2021_11_log/">
                     <div class="card-image">
                         
                         
-                        <img src="/record-blog/medias/featureimages/6.jpg" class="responsive-img" alt="20211028">
+                        <img src="/record-blog/medias/featureimages/19.jpg" class="responsive-img" alt="2021年11月日志">
                         
-                        <span class="card-title">20211028</span>
+                        <span class="card-title">2021年11月日志</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -786,12 +725,16 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-30
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            wxy
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/record-blog/categories/log/" class="post-category">
+                                    log
+                                </a>
+                            
                             
                         </span>
                     </div>

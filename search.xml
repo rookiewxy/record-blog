@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>2021年12月日志</title>
+      <link href="/record-blog/2021/12/04/2021-12-log/"/>
+      <url>/record-blog/2021/12/04/2021-12-log/</url>
+      
+        <content type="html"><![CDATA[<h4 id="一、12-1"><a href="#一、12-1" class="headerlink" title="一、12/1"></a>一、12/1</h4><ul><li><p><a href="https://cloud.tencent.com/developer/article/1082524">npm、yarn、pnpm</a></p></li><li><p>npm和yarn的区别：</p><ol><li><code>yarn</code>比<code>npm</code>运行速度快，虽然两者都采用了缓存，但是<code>yarn</code>需互联网连接就能安装本地缓存的依赖项，它提供了离线模式</li><li>yarn比npm确定性更高，因为npm除了做了基本的SHA1哈希之外不执行任何完整性检查，这给安装系统程序带来了安全风险，每个<code>yarn</code>安装都会生成一个类似于<code>npm-shrinkwrap.json</code>的<code>yarn.lock</code>文件，而且它是默认创建的。除了常规信息之外，<code>yarn.lock</code>文件还包含要安装的内容的校验和，以确保使用的库的版本相同，虽然npm中提供了<code>shrinkwrap</code>命令,即使存在npm-shrinkwrap.json这个文件，npm也只会锁定库的版本，而不是库的内容。即便npm现在也能阻止用户多次重复发布库的同一版本</li><li>yarn workspace工作区也是和npm的主要区别之一</li></ol></li><li><p>only-arrow，统一包管理器</p></li></ul><h4 id="二、12-2"><a href="#二、12-2" class="headerlink" title="二、12/2"></a>二、12/2</h4><ul><li>vue修改状态后不刷新的几种情况</li><li>关于<code>useDeepCompareEffect</code>的封装，利用<code>lodash/isEqual</code>进行深比较</li></ul><h4 id="三、12-3"><a href="#三、12-3" class="headerlink" title="三、12/3"></a>三、12/3</h4><ul><li>vite和webpack的区别<ol><li>由于现代浏览器本身就支持ES Module，会自动向依赖的Module发出请求。vite充分利用这一点，将开发环境下的模块文件，就作为浏览器要执行的文件，而不是像webpack那样进行打包合并</li><li>由于vite在启动的时候不需要打包，也就意味着不需要分析模块的依赖、不需要编译，因此启动速度非常快。当浏览器请求某个模块时，再根据需要对模块内容进行编译。这种按需动态编译的方式，极大的缩减了编译时间，项目越复杂、模块越多，vite的优势越明显。</li><li>在HMR（热更新）方面，当改动了一个模块后，仅需让浏览器重新请求该模块即可，不像webpack那样需要把该模块的相关依赖模块全部编译一次，效率更高</li><li>由于vite利用的是ES Module，因此在代码中（除了vite.config.js里面，这里是node的执行环境）不可以使用CommonJS</li></ol></li></ul><h4 id="三、12-4"><a href="#三、12-4" class="headerlink" title="三、12/4"></a>三、12/4</h4><ul><li>vue3 sugar</li><li>mst修改state，可通过actions直接修改，但是在进行ui交互时不能直接修改，因为是不可变数据，需要深度clone</li><li><strong>PureComponent</strong>、<strong>useEffect</strong>……浅比较，例如在处理数组时，如果使用push操作，这不会造成更新，以为并没有返回新引用，<strong>那么换言之则说明浅比较对于比较同一个数组是无能为力的</strong>，<strong>避免使用值可能会突变的属性或状态</strong>应该用concat重写成，<strong>我们必须保证浅比较时数组的指针是不相同的</strong></li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2021年11月日志</title>
       <link href="/record-blog/2021/11/30/2021_11_log/"/>
       <url>/record-blog/2021/11/30/2021_11_log/</url>
