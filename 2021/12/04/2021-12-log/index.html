@@ -445,6 +445,63 @@
 <li>mst修改state，可通过actions直接修改，但是在进行ui交互时不能直接修改，因为是不可变数据，需要深度clone</li>
 <li><strong>PureComponent</strong>、<strong>useEffect</strong>……浅比较，例如在处理数组时，如果使用push操作，这不会造成更新，以为并没有返回新引用，<strong>那么换言之则说明浅比较对于比较同一个数组是无能为力的</strong>，<strong>避免使用值可能会突变的属性或状态</strong>应该用concat重写成，<strong>我们必须保证浅比较时数组的指针是不相同的</strong></li>
 </ul>
+<h4 id="五、12-6"><a href="#五、12-6" class="headerlink" title="五、12/6"></a>五、12/6</h4><ul>
+<li><p>webpack打包优化，例如只打包对应引用的图片，通过test判断加载路径</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span>
+  test<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.(png|jpe?g|gif|webp)(\?.*)?$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+  oneOf<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+      test<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">node_modules(\/|\\)@zoom(\/|\\)zoom-ui(\/|\\).*(\/|\\)country-select(\/|\\).*\.(png|jpe?g|gif|webp)(\?.*)?$</span><span class="token regex-delimiter">/</span><span class="token regex-flags">i</span></span><span class="token punctuation">,</span>
+      use<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">&#123;</span>
+          loader<span class="token operator">:</span> <span class="token string">'url-loader'</span><span class="token punctuation">,</span>
+          options<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            limit<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            fallback<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+              loader<span class="token operator">:</span> <span class="token string">'file-loader'</span><span class="token punctuation">,</span>
+              options<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+                name<span class="token operator">:</span> <span class="token string">'img/[name].[hash:8].[ext]'</span>
+              <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+          <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  use<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+      loader<span class="token operator">:</span> <span class="token string">'url-loader'</span><span class="token punctuation">,</span>
+      options<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        limit<span class="token operator">:</span> <span class="token number">4096</span><span class="token punctuation">,</span>
+        fallback<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+          loader<span class="token operator">:</span> <span class="token string">'file-loader'</span><span class="token punctuation">,</span>
+          options<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            name<span class="token operator">:</span> <span class="token string">'img/[name].[hash:8].[ext]'</span>
+          <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>模块化、组件化（高类聚、低耦合）</li>
+<li>在原生js中也可以实现组件化（Web Components(<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Web_Components)%EF%BC%89">https://developer.mozilla.org/zh-CN/docs/Web/Web_Components)）</a></li>
+<li>类数组和数组的区别（isArray、instanceof、constructor 、Object.prototype.toString.call）</li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/json-server">json-server</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="六、12-7"><a href="#六、12-7" class="headerlink" title="六、12/7"></a>六、12/7</h4><ul>
+<li>复习web框架express，mvc概念</li>
+<li>nodejs数据库项目的搭建、工厂模式</li>
+</ul>
+<h4 id="七、12-8"><a href="#七、12-8" class="headerlink" title="七、12/8"></a>七、12/8</h4><ul>
+<li>中间件 <a target="_blank" rel="noopener" href="https://blog.csdn.net/dyw3390199/article/details/114080239?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-1.opensearchhbase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-1.opensearchhbase">洋葱模型</a>:因为很多时候我们在一个app里面有好多中间件，有些中间件需要依赖其他中间件的结果，那么如果没有洋葱模型就可能会出错</li>
+</ul>
+<h4 id="八、12-9"><a href="#八、12-9" class="headerlink" title="八、12/9"></a>八、12/9</h4><ul>
+<li>VO AO作用域</li>
+</ul>
 
                 
             </div>
