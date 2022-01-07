@@ -503,12 +503,80 @@
 <li>VO AO作用域</li>
 </ul>
 <h4 id="九、12-13"><a href="#九、12-13" class="headerlink" title="九、12/13"></a>九、12/13</h4><ul>
-<li>React 中 State 和 Props 的理解</li>
-<li>super和super(props)的区别</li>
-<li>React 中的事件：React 中的事件叫<code>合成事件</code>:React 底层使用<code>事件委托</code>的方式对真实 DOM 事件进行了封装,使合成事件具有更好的浏览器兼容性和性能</li>
+<li><p>React 中 State 和 Props 的理解</p>
+</li>
+<li><p>super和super(props)的区别</p>
+</li>
+<li><p>React 中的事件：React 中的事件叫<code>合成事件</code>:React 底层使用<code>事件委托</code>的方式对真实 DOM 事件进行了封装,使合成事件具有更好的浏览器兼容性和性能</p>
+<h4 id="十、12-15"><a href="#十、12-15" class="headerlink" title="十、12/15"></a>十、12/15</h4></li>
+<li><p>sentry</p>
+</li>
 </ul>
-<h4 id="九、12-14"><a href="#九、12-14" class="headerlink" title="九、12/14"></a>九、12/14</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://sentry.io/onboarding/xtkj/select-platform/">sentry</a></li>
+<h4 id="十一、12-16"><a href="#十一、12-16" class="headerlink" title="十一、12/16"></a>十一、12/16</h4><ul>
+<li><p>通过css选择器实现朋友圈照片响应式布局</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/pGkxykrTRj3YdNwlkAmwBQ">好用的mock工具</a></p>
+</li>
+<li><p>promise的场景的错误</p>
+<pre class="line-numbers language-tex" data-language="tex"><code class="language-tex">1. then的回调地狱
+2. promise中使用try...catch因为promise自带catch方法
+3. 在 Promise 块内使用异步函数，当捕获副作用时会有点影响
+4. 当一个Promise被创建时，回调被立即执行,可以使用函数包裹）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>vuex5和pinia一模一样，store采用了模块化，打包时只会打包对应用到的store</p>
+</li>
+<li><p>.d.ts声明文件的重要性，有时候打包时会报错显示此文件没有声明，在项目更目录添加d.ts文件，一定要在tsconfig.json中include</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">&quot;include&quot;: [&quot;typings.d.ts&quot;, &quot;src&quot;]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>file-loader 返回的是文件的路径</p>
+</li>
+<li><p>url-loader 返回的是文件的base64编码，内部对file-loader做过封装，通过limit来划分大小，文件大小小于limit参数，url-loader将会把文件转为DataURL，大于limit，url-loader会调用file-loader进行处理，参数也会直接传给file-loader。</p>
+</li>
+</ul>
+<h4 id="十二、12-20"><a href="#十二、12-20" class="headerlink" title="十二、12/20"></a>十二、12/20</h4><ul>
+<li><p>sourceMap</p>
+</li>
+<li><p><a href>babel</a></p>
+</li>
+<li><p>:global在组件内部修改全局样式</p>
+</li>
+</ul>
+<h4 id="十三、12-22"><a href="#十三、12-22" class="headerlink" title="十三、12/22"></a>十三、12/22</h4><ul>
+<li>项目中使用json-server</li>
+<li>通过在package.json中添加配置信息，来发布组件（最好提供脚手架）</li>
+</ul>
+<h4 id="十四、12-23"><a href="#十四、12-23" class="headerlink" title="十四、12/23"></a>十四、12/23</h4><ul>
+<li>CDN combo 把多个资源文件合并引用，减少请求次数</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qiwoo_weekly/article/details/109088795">Bundleless</a>模式可以充分利用浏览器自主加载的特性，跳过打包的过程，使得我们能在项目启动时获取到极快的启动速度，在本地更新时只需要重新编译单个文件。</li>
+</ul>
+<h4 id="十五、12-24"><a href="#十五、12-24" class="headerlink" title="十五、12/24"></a>十五、12/24</h4><ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/255a42397db5"><code>CSS Modules</code>和<code>scope css</code>的区别</a></p>
+</li>
+<li><p>useEffect中return里面回调函数的执行时机，当useEffect有第二个参数的时候，update或者卸载的时候最先执行return里面的函数，如果第二个参数是空数组，则卸载的时候执行</p>
+</li>
+<li><p>records和tuples提案</p>
+</li>
+</ul>
+<h4 id="十六、12-27"><a href="#十六、12-27" class="headerlink" title="十六、12/27"></a>十六、12/27</h4><ul>
+<li>BI和低代码的概念</li>
+<li>组件的正交设计</li>
+</ul>
+<h4 id="十七、12-28"><a href="#十七、12-28" class="headerlink" title="十七、12/28"></a>十七、12/28</h4><ul>
+<li>npm6.9以上支持新功能package alias对包重命名</li>
+<li>@vue/shared工具的封装方法</li>
+</ul>
+<h4 id="十八、12-29"><a href="#十八、12-29" class="headerlink" title="十八、12/29"></a>十八、12/29</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/QAwm-gcaL6LGtgD4ZefrXg">Array新提案</a>拓展新方法（at()，groupBy()，groupByToMap（），findLast（），为ArrayBuffer增加transfer）</li>
 </ul>
 
                 
@@ -1027,7 +1095,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2021</span>
+                <span id="year">2019-2022</span>
             
             <span id="year">2019</span>
             <a href="/record-blog/about" target="_blank">wxy</a>
