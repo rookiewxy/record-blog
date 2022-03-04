@@ -14,7 +14,7 @@
   "dependencies": {
     "acorn": "^8.4.1",
     "cheerio": "^1.0.0-rc.10",
-    "hexo": "^5.4.0",
+    "hexo": "^6.0.0",
     "hexo-asset-image": "^1.0.0",
     "hexo-deployer-git": "^2.1.0",
     "hexo-generator-archive": "^1.0.0",
