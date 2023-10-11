@@ -1,6 +1,6 @@
 #### babylon的camera封装
 1. 设计思路
-创建一个`Camera`的父类，以及对应四种`Camera`类型的子类进行集成，通过公用的`interface`进行`implement`，例如都拥有`createCamera`方法，在该方法中使用`Babylon`创建对应的`Camera`，进行返回，在创建一个`CameraManager`的类，进行管理，因为二次封装的意义是方便进行调用，通过`Manager`只用传入相机类型以及对应的参数，就可以创建一个相机，所以`CameraManager`中依赖了四种`camera`类型的子类，当然`CameraManager`不仅仅用来做创建，还可以用来协调对象的逻辑，以及销毁,因为销毁方法，`babylon`自身以及提供所以可以直接在返回的实例当中进行调用
+创建一个`Camera`的父类，以及对应四种`Camera`类型的子类进行集成，`camera`中我们需要二次封装4中相机，依次继承`babylon`中的`camera`，然后再单独写一个`camera`的基类进行合并，以防有相同的属性和方法，在该方法中使用`Babylon`创建对应的`Camera`，进行返回，在创建一个`CameraManager`的类，进行管理，因为二次封装的意义是方便进行调用，通过`Manager`只用传入相机类型以及对应的参数，就可以创建一个相机，所以`CameraManager`中依赖了四种`camera`类型的子类，当然`CameraManager`不仅仅用来做创建，还可以用来协调对象的逻辑，以及销毁,因为销毁方法，`babylon`自身以及提供所以可以直接在返回的实例当中进行调用
 `Manager`代码示例如下
 ```ts
 
@@ -29,17 +29,15 @@ const cameraClasses: Record<
 };
 
 export class CameraManager<T extends `${CameraEnum}`> {
-  private camera: Camera;
+  camera: CameraType<T>;
 
-  constructor(type: T, params: CameraParams<T>) {
+  constructor(type: T, params?: CameraParams<T>) {
     this.createCamera(type, params);
   }
 
-  createCamera(type: T, params: CameraParams<T>) {
-    const CameraClass = new cameraClasses[type]();
-    if (CameraClass) {
-      this.camera = merge(CameraClass.createCamera(params), CameraClass);
-    } else {
+  createCamera(type: T, params?: CameraParams<T>) {
+    this.camera = new cameraClasses[type](params);
+    if (!this.camera) {
       throw new Error(`Unsupported camera type: ${type}`);
     }
   }
@@ -47,6 +45,92 @@ export class CameraManager<T extends `${CameraEnum}`> {
   getCamera() {
     return this.camera;
   }
+
+  dispose() {
+    this.camera.dispose();
+  }
 }
 
+
+```
+
+#### babylon的light封装
+同`camera`
+
+#### babylon的gameobject封装
+`gameobject`我在`babylon`里面分成了两种类型，第一种是形状类型，第二种是模型加载，
+首先形状有很多种，这里我们选择比较常用的三种进行封装，添加一个`shapeManager`类
+
+```ts
+export class ShapeManager<T extends `${ShapeEnum}`>{
+
+  createShape(type: T, params: IShapeParams){
+    const { name, options, scene } = params;
+    const createFunction: CreateFunction = {
+      [ShapeEnum.BOX]: BABYLON.MeshBuilder.CreateBox,
+      [ShapeEnum.SPHERE]: BABYLON.MeshBuilder.CreateSphere,
+      [ShapeEnum.GROUND]: BABYLON.MeshBuilder.CreateGround,
+    }[type];
+
+    if (createFunction) {
+      return createFunction(name, options, scene);
+    } else {
+      throw new Error("Unsupported shape type");
+    }
+  }
+}
+
+```
+其次就是模型加载，`Babylon`中的模型加载方式非常多，没有考虑在针对于他们进行二次封装，所以直接返回`loader`方法，让客户端自己调用
+
+
+完成了以上两种，就是整个`gameobject`的封装了，一个游戏对象需要创建功能也需要更新功能，和销毁，这里说一下更新功能，目前我会设计一个`Task`类，专门负责工作流，其中有一个方法是`tick`就是负责更新的，那么更新无非就是属性的更新，在传入的属性中可能有在`gameobject`中存在也可能不存在，那么不存在的属性，我会进行返回
+```ts
+// task.ts
+export class Task implements ITask {
+  tick<T>(
+    params: Properties,
+    handler?: (instance: T, fieldErrors: Properties) => void
+  ): void {
+    const fieldErrors = {} as Properties;
+    for (let p in params) {
+      if (Reflect.has(this, p)) {
+        Reflect.set(this, p, params[p]);
+      } else {
+        fieldErrors[p] = params[p];
+      }
+    }
+    handler?.(this as unknown as T, fieldErrors);
+  }
+}
+
+```
+
+```ts
+import * as BABYLON from "babylonjs"
+import { GLTFFileLoader } from "babylonjs-loaders";
+
+BABYLON.SceneLoader.RegisterPlugin(new GLTFFileLoader());
+
+export const ModelLoader = BABYLON.SceneLoader;
+export class GameObject {
+  private lastGameObj: BABYLON.Mesh;
+  create(type: `${ShapeEnum}`, params: IShapeParams) {
+  }
+
+  load() {
+  }
+
+  tick(
+    gameObj: BABYLON.Mesh & ITask,
+    params: Properties,
+    handler?: (params: this, fieldErrors: Properties) => void
+  ) {
+    if (gameObj !== this.lastGameObj) {
+      mixin(gameObj, Task);
+      this.lastGameObj = gameObj;
+    }
+    gameObj?.tick(params, handler);
+  }
+}
 ```
