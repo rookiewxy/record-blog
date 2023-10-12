@@ -134,3 +134,59 @@ export class GameObject {
   }
 }
 ```
+
+#### 渐进加载的封装
+实现原理，加载camera视口的模型，监听camera的方向和范围的变化，加载模型
+在scene中添加获取视锥面的方法
+```ts
+  onFrustumPlanesObserver(callback: (frustumPlanes: BABYLON.Plane[]) => void) {
+    const camera = this.activeCamera;
+    return camera?.onViewMatrixChangedObservable.add(() => {
+      const viewMatrix = camera.getViewMatrix(); // 视口矩阵
+      const projectionMatrix = camera.getProjectionMatrix(); // 投影矩阵
+      const frustumPlanes = BABYLON.Frustum.GetPlanes(
+        viewMatrix.multiply(projectionMatrix) // 视口矩阵乘以投影矩阵得到变换矩阵
+      );
+      callback(frustumPlanes);
+    });
+  }
+```
+在客户端进行调用,其中`modelsToLoad`是需要加载的模型列表，`isModelInFrustum`方法判断模型是否在当前视口
+```ts
+ scene.onFrustumPlanesObserver((frustumPlanes) => {
+    this.loadModelsInFrustum(frustumPlanes);
+  });
+
+  loadModelsInFrustum(frustumPlanes) {
+    // 遍历所有待加载的模型
+    for (const model of modelsToLoad) {
+      // 检查模型是否在视野内
+      if (this.scene.isModelInFrustum(model.position, frustumPlanes)) {
+        if (!inFrustumModels.includes(model.name)) {
+          this.loadModel(model.name);
+          inFrustumModels.push(model.name);
+        }
+      }
+    }
+  }
+
+  
+  loadModel(model: string) {
+    BABYLON.SceneLoader.ImportMeshSync(
+      "",
+      "xxx",
+      model,
+      this.scene,
+      function () {
+        // 模型加载完成后执行一些操作
+      },
+    );
+  }
+```
+
+```ts
+// scene.js
+  isModelInFrustum(position: Vector3, frustumPlanes: BABYLON.Plane[]) {
+    return BABYLON.Frustum.IsPointInFrustum(position, frustumPlanes);
+  }
+```
