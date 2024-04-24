@@ -67,11 +67,20 @@ ll
 ```bash
 vim conf/nginx.conf
 ```
-
+ 
 9. 启动nginx
 在这一步，我卡了很久，因为我始终找不到sbin在哪里，我一直以为要退出当前目录，其实你在/usr/local/nginx这个目录下，输入cd sbin就可以了，make install这一步绝对不能少
 ```
 sbin/nginx -s reload
+```
+
+10. 停止服务
+执行该命令之后，会包nginx.pid的丢失，因为stop为删除一些文件，所以需要重新再执行一下
+```
+nginx -s stop
+
+<!-- 进入nginx/sbin执行，重新生成pid -->
+/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
 ```
 
 参考文档
