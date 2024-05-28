@@ -18,3 +18,17 @@ NodeMaterial提供了一种直观且灵活的方式来定义材质的外观和�
 但是要实现mesh的阴影投射怎么办，我想的是使用一张网格贴图，不用gridMaterial了
 
 
+### 2024/5/22
+1. `GizmoManager`遇到的问题，如果有多个场景的情况，它只会在第一个场景生效，例如当一个场景组件实例化之后进行删除，在进行实例化，这个时候Gizmo就没有效果了，只会在初始实例化的时候有效果，这个时候需要使用`UtilityLayerRenderer`进行场景绑定
+```ts
+const gizmoManager = new BABYLON.GizmoManager(scene, undefined, new BABYLON.UtilityLayerRenderer(scene));
+```
+2. 在三维编辑器中一种常见的场景就是`gizmo`作用于模型、灯光、相机等，方便调试，在我attachToMesh的时候一切正常，正常情况就是我通过`gizmo`拖动一个模型改变他的位置，在我再次添加模型的时候（这里我做了数据缓存，如果是统一的模型不用重新创建而是在缓存中获取`meshes`）位置应该是模型原始的位置，因为light需要借助`UtilityLayerRenderer`和`LightGzimo`达到格式化的效果,所以需要使用`attachToNode`,但是现在就不正常，他的拖动会改变原始模型的位置，排查了好久以为是我某个地方修改到了原始的数据，解决方式是在长江`LightGizmo`的时候传一个cloneMesh，这样就不会影响
+```tsx
+const utilLayer = UtilityLayerRenderer.DefaultUtilityLayer;
+this.lightGizmo = new BABYLON.LightGizmo(utilLayer);
+this.lightGizmo.light = cloneMesh(light);
+
+
+this.gizmo.attachToNode(this.gizmo.lightGizmo.attachedNode);
+```
