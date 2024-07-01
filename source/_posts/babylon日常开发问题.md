@@ -32,3 +32,51 @@ this.lightGizmo.light = cloneMesh(light);
 
 this.gizmo.attachToNode(this.gizmo.lightGizmo.attachedNode);
 ```
+
+
+#### 6、27
+1. babylonjs中渲染大量灯光的问题，默认他只支持4个光源，可以通过设置maxSimultaneousLights来改变光源数量，但是最多也就10个左右，超过就会报错黑屏，于是在网上看到了延迟着色的方法，一起来看一下这篇文章，https://learnopengl.com/Advanced-Lighting/Deferred-Shading
+
+`Forward rendering` 和 `forward shading` 都是指一种渲染技术，通常可以互换使用。 [2](https://gamedevelopment.tutsplus.com/forward-rendering-vs-deferred-rendering--gamedev-12342a)[3](https://unrealartoptimization.github.io/book/pipelines/forward-vs-deferred/)
+
+简单来说，forward rendering 就是指在渲染每个物体的时候，立即计算光照效果。 [2](https://gamedevelopment.tutsplus.com/forward-rendering-vs-deferred-rendering--gamedev-12342a)[3](https://unrealartoptimization.github.io/book/pipelines/forward-vs-deferred/) 这与另一种渲染技术“deferred rendering”形成对比，后者会先将场景中所有物体的几何信息和材质信息渲染到一个称为 G-buffer 的缓冲区中，然后再根据 G-buffer 中的信息计算光照效果。 [2](https://gamedevelopment.tutsplus.com/forward-rendering-vs-deferred-rendering--gamedev-12342a)[3](https://unrealartoptimization.github.io/book/pipelines/forward-vs-deferred/)
+
+Forward rendering 的优势在于：
+
+* 效率更高，尤其是在光源数量较少的情况下。 [5](https://forums.unrealengine.com/t/why-use-forward-shading/1712026)
+* 对硬件要求更低，可以兼容更老的显卡。 [2](https://gamedevelopment.tutsplus.com/forward-rendering-vs-deferred-rendering--gamedev-12342a)
+* 支持 MSAA (多重采样抗锯齿) 和 alpha2coverage (半透明物体抗锯齿)。 [5](https://forums.unrealengine.com/t/why-use-forward-shading/1712026)
+
+而 Deferred rendering 的优势在于：
+
+* 能够处理更多光源，尤其是在场景中有多个动态光源的情况下。 [2](https://gamedevelopment.tutsplus.com/forward-rendering-vs-deferred-rendering--gamedev-12342a)
+* 可以对灯光进行更灵活的处理，例如阴影和反射等效果。 [2](https://gamedevelopment.tutsplus.com/forward-rendering-vs-deferred-rendering--gamedev-12342a)
+
+最终，选择哪种渲染技术取决于具体项目的需要。 [2](https://gamedevelopment.tutsplus.com/forward-rendering-vs-deferred-rendering--gamedev-12342a) 如果你的游戏需要处理大量的动态光源，并且对硬件性能要求较高，那么 Deferred rendering 可能更适合。 [2](https://gamedevelopment.tutsplus.com/forward-rendering-vs-deferred-rendering--gamedev-12342a) 否则，Forward rendering 可以提供更简单、更高效的解决方案。 [2](https://gamedevelopment.tutsplus.com/forward-rendering-vs-deferred-rendering--gamedev-12342a)
+
+
+
+**MSAA**
+
+MSAA，即 **多重采样抗锯齿** (Multisample Anti-Aliasing)，是一种常用的抗锯齿技术，主要用于消除图形边缘的锯齿现象。 [1](https://en.wikipedia.org/wiki/Multisample_anti-aliasing)
+
+MSAA 的原理是：在渲染每个像素时，不是只采样一次，而是对该像素进行多次采样，然后将这些采样结果进行平均，从而得到一个更平滑的像素颜色值。 [1](https://en.wikipedia.org/wiki/Multisample_anti-aliasing)
+
+以下是 MSAA 的工作原理：
+
+1. **渲染场景：** 场景被渲染到一个称为“多重采样缓冲区” (Multisample Buffer) 的特殊缓冲区中。 [1](https://en.wikipedia.org/wiki/Multisample_anti-aliasing)
+2. **多重采样：** 在渲染过程中，每个像素会被分成多个子像素，每个子像素都进行单独的采样。 [1](https://en.wikipedia.org/wiki/Multisample_anti-aliasing)
+3. **合并采样：** 所有子像素的采样结果被合并成一个最终的像素颜色值。 [1](https://en.wikipedia.org/wiki/Multisample_anti-aliasing)
+4. **显示：** 最终的像素颜色值被显示到屏幕上。 [1](https://en.wikipedia.org/wiki/Multisample_anti-aliasing)
+
+MSAA 的优点：
+
+* **能够有效消除锯齿现象，** 使得图形边缘更平滑。 [1](https://en.wikipedia.org/wiki/Multisample_anti-aliasing)
+* **对性能影响较小，** 尤其是在高分辨率屏幕上。 [1](https://en.wikipedia.org/wiki/Multisample_anti-aliasing)
+
+MSAA 的缺点：
+
+* **无法消除所有锯齿，** 尤其是那些非常小的几何细节，以及那些在屏幕上移动速度非常快的物体。 [1](https://en.wikipedia.org/wiki/Multisample_anti-aliasing)
+* **会增加渲染负担，** 尤其是在高采样率的情况下。 [1](https://en.wikipedia.org/wiki/Multisample_anti-aliasing)
+
+总的来说，MSAA 是一种有效且常用的抗锯齿技术，能够显著改善图形质量。 
