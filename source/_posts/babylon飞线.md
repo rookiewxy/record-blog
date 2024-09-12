@@ -48,7 +48,10 @@
     const texture = new BABYLON.Texture("xxx")
     ribbon.material = material;
     material.diffuseTexture = texture
-    material.diffuseTexture.hasAlpha = true; // 开启透明通道
+    // 材质将基于纹理中的 Alpha 通道来控制透明度，使得纹理的透明部分在场景中显示为透明
+    material.useAlphaFromDiffuseTexture = true;
+    // 开启透明通道
+    material.diffuseTexture.hasAlpha = true; 
 ```
 
 
