@@ -34,7 +34,7 @@ this.gizmo.attachToNode(this.gizmo.lightGizmo.attachedNode);
 ```
 
 
-#### 6、27
+### 2024/6/27
 1. babylonjs中渲染大量灯光的问题，默认他只支持4个光源，可以通过设置maxSimultaneousLights来改变光源数量，但是最多也就10个左右，超过就会报错黑屏，于是在网上看到了延迟着色的方法，一起来看一下这篇文章，https://learnopengl.com/Advanced-Lighting/Deferred-Shading
 
 `Forward rendering` 和 `forward shading` 都是指一种渲染技术，通常可以互换使用。 [2](https://gamedevelopment.tutsplus.com/forward-rendering-vs-deferred-rendering--gamedev-12342a)[3](https://unrealartoptimization.github.io/book/pipelines/forward-vs-deferred/)
@@ -80,3 +80,13 @@ MSAA 的缺点：
 * **会增加渲染负担，** 尤其是在高采样率的情况下。 [1](https://en.wikipedia.org/wiki/Multisample_anti-aliasing)
 
 总的来说，MSAA 是一种有效且常用的抗锯齿技术，能够显著改善图形质量。 
+
+
+### 2024/9/19
+1. 控制场景中的物体大小不受相机缩放的影响，方法如下
+```ts
+scene.registerBeforeRender(() => {
+      const d = 0.1 * Math.max(this.scene.getActiveCamera().position.subtract(mesh.position).length(), 0.1)
+      mesh.scaling = new Vector3(d, d, d);
+})
+```
