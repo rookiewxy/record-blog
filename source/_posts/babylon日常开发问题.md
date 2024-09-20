@@ -90,3 +90,14 @@ scene.registerBeforeRender(() => {
       mesh.scaling = new Vector3(d, d, d);
 })
 ```
+
+### 2024/9/20
+1. 使用`unplugin-auto-import`不起作用
+一定要在配置项中写dts，这样启动项目会自动生成`auto-imports.d.ts`文件，在引入tsconfig.json中的include中就可以了
+```ts
+autoImports({
+        imports: ["react", "react-router-dom", "ahooks", { classnames: [["default", "c"]] }],
+        dirs: ['src/*'],
+        dts: "auto-imports.d.ts"
+      })
+```
