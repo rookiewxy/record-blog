@@ -91,13 +91,15 @@ scene.registerBeforeRender(() => {
 })
 ```
 
-### 2024/9/20
-1. 使用`unplugin-auto-import`不起作用
-一定要在配置项中写dts，这样启动项目会自动生成`auto-imports.d.ts`文件，在引入tsconfig.json中的include中就可以了
+### 2024/9/21
+1. 以第一人称的形式在室内进行移动，并且进行碰撞检测，刚开始设置了`ellipsoid`还是会有穿透效果，感觉画面有一部分是破损，是因为要设置camera.minZ，并不是`ellipsoid`的问题，刚开始一直以为是它的问题,并且在移动
+过程中，现在相机的y是不固定的，还需在每帧重新设置y的坐标
 ```ts
-autoImports({
-        imports: ["react", "react-router-dom", "ahooks", { classnames: [["default", "c"]] }],
-        dirs: ['src/*'],
-        dts: "auto-imports.d.ts"
-      })
+camera.minZ = 0.05;
+camera.ellipsoid = new BABYLON.Vector3(0.5, 0.8, 0.5);
+camera.ellipsoidOffset = new BABYLON.Vector3(0, 0.5, 0);
+
+this.scene!.onBeforeRenderObservable.add(() => {
+   camera.position.y = 1.5; // 保持固定高度
+});
 ```
