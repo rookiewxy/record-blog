@@ -110,3 +110,5 @@ this.scene!.onBeforeRenderObservable.add(() => {
     camera.position.copyFrom(arcRotateCamera.position);
     camera.rotation.copyFrom(arcRotateCamera.rotation)
 ```
+2.在使用babylon构建场景的过程中，有的电脑设备比较老，报下图的错误，需降级为webgl1的版本
+ ![alt text](image-6.png)
