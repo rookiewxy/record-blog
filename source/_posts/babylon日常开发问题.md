@@ -103,3 +103,10 @@ this.scene!.onBeforeRenderObservable.add(() => {
    camera.position.y = 1.5; // 保持固定高度
 });
 ```
+
+### 2024/9/25
+1. arcRotateCamera切换到universalCamera，也就是第三人称切换到第一人称，其实不用太多的计算，设置对应的position和rotation就行
+```ts
+    camera.position.copyFrom(arcRotateCamera.position);
+    camera.rotation.copyFrom(arcRotateCamera.rotation)
+```
