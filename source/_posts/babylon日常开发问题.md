@@ -118,7 +118,7 @@ this.scene!.onBeforeRenderObservable.add(() => {
  1. 还是25号 VAO报错的问题，降级为webgl1还是有时候报错，并且设备其实也是支持webgl2的语法，一直觉得是模型贴图的问题，但是换了几种类型的材质贴图都可以正常加载，只不过大小都很小，所以最后尝试了白膜加贴图的方式，在笔记本电脑上也可以加载了，但是也遇到了不少问题
  1. 贴图是反的
  2. 光照效果不够
- 因为建模人员都是在sandbox上进行测试的，它里面的贴图都是pbrMaterial的类型，而我使用的是标准贴图，最后我也换成了pbr材质，贴图是反的，可以设置vSCale为-1，绕y轴旋转，还有一些透明材质就不需要贴图了
+ 因为建模人员都是在sandbox上进行测试的，它里面的贴图都是pbrMaterial的类型，而我使用的是标准贴图，最后我也换成了pbr材质，贴图是反的，可以设置vSCale为-1，绕y轴旋转，还有一些透明材质就不需要贴图了,但是现在这种方式是比较蠢的因为我是手动匹配的，最好的方式是导出一个文件夹，其中有白膜模型其中引入了相对根目录的材质图片，我直接加载这个模型就可以了，之前在sandbox上试了好像做不到分离贴图，还是要使用专业的建模软件，例如`blender`
  ```ts
 import * as BABYLON from "babylonjs";
 import { GLTFFileLoader } from "babylonjs-loaders";
@@ -160,3 +160,4 @@ class Model {
 export { Model };
 
  ```
+
