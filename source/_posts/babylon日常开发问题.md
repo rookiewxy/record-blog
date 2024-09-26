@@ -112,3 +112,51 @@ this.scene!.onBeforeRenderObservable.add(() => {
 ```
 2.在使用babylon构建场景的过程中，有的电脑设备比较老，报下图的错误，需降级为webgl1的版本
  ![alt text](image-6.png)
+
+
+ ### 2024/9/26
+ 1. 还是25号 VAO报错的问题，降级为webgl1还是有时候报错，并且设备其实也是支持webgl2的语法，一直觉得是模型贴图的问题，但是换了几种类型的材质贴图都可以正常加载，只不过大小都很小，所以最后尝试了白膜加贴图的方式，在笔记本电脑上也可以加载了，但是也遇到了不少问题
+ 1. 贴图是反的
+ 2. 光照效果不够
+ 因为建模人员都是在sandbox上进行测试的，它里面的贴图都是pbrMaterial的类型，而我使用的是标准贴图，最后我也换成了pbr材质，贴图是反的，可以设置vSCale为-1，绕y轴旋转，还有一些透明材质就不需要贴图了
+ ```ts
+import * as BABYLON from "babylonjs";
+import { GLTFFileLoader } from "babylonjs-loaders";
+
+BABYLON.SceneLoader.RegisterPlugin(new GLTFFileLoader());
+
+
+const excludedMaterialMesh = [
+    "__root__",
+    "SM_ZhanGuan_A032A",
+    "SM_ZhanGuan_A038A",
+    "SM_ZhanGuan_A037A",
+    "SM_ZhanGuan_A037A_1",
+    "SM_ZhanGuan_A043A",
+]
+class Model {
+    static async load(scene: BABYLON.Scene, onProgress?: (event: BABYLON.ISceneLoaderProgressEvent) => void) {
+        const res = await BABYLON.SceneLoader.ImportMeshAsync("", "model.glb", "", scene, onProgress);
+
+        res.meshes.forEach((mesh) => {
+            mesh.checkCollisions = true;
+            if (!excludedMaterialMesh.includes(mesh.name)
+            ) {
+                const material = new BABYLON.PBRMaterial("", scene);
+                material.roughness = 0.5;
+                material.metallic = 0;
+
+                const texture = new BABYLON.Texture(`material/${mesh.name}.png`, scene);
+                texture.vScale = -1;
+                material.albedoTexture = texture;
+                texture.hasAlpha = true
+                mesh.material = material;
+            }
+        });
+        return res;
+    }
+}
+
+export { Model };
+
+ ```
