@@ -134,6 +134,7 @@ const excludedMaterialMesh = [
     "SM_ZhanGuan_A037A_1",
     "SM_ZhanGuan_A043A",
 ]
+
 class Model {
     static async load(scene: BABYLON.Scene, onProgress?: (event: BABYLON.ISceneLoaderProgressEvent) => void) {
         const res = await BABYLON.SceneLoader.ImportMeshAsync("", "model.glb", "", scene, onProgress);
@@ -161,3 +162,29 @@ export { Model };
 
  ```
 
+
+ ### 2024/9/29
+1. 最近一直在做三维展厅的功能，以第一人称的视角进行移动，有一个功能是需要知道当前移动到了展厅的那个区域，其实看到了射线检测，尝试过但是射线的长度不好控制，于是根据每个区块的边界值来判断，获取每个mesh的getBoundingInfo中的minimumWorld和maximumWorld进行camera.position的判断，一定是世界坐标系进行比较，因为camera.position就是世界坐标系
+```ts
+function checkCameraPosition(camera: BABYLON.UniversalCamera) {
+    const cameraPosition = camera.position
+
+    for (const roomKey in rooms) {
+      const room = (rooms as Record<string, IRegionalItem>)[roomKey];
+      const minimumWorld = room.minimumWorld;
+      const maximumWorld = room.maximumWorld;
+
+      const isInside = (
+        cameraPosition.x >= minimumWorld.x && cameraPosition.x <= maximumWorld.x &&
+        cameraPosition.y >= minimumWorld.y && cameraPosition.y <= maximumWorld.y &&
+        cameraPosition.z >= minimumWorld.z && cameraPosition.z <= maximumWorld.z
+      );
+
+      if (isInside) {
+        return roomKey;
+      }
+    }
+
+    returnnull;
+  }
+```
