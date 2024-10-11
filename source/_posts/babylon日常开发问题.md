@@ -190,3 +190,6 @@ function checkCameraPosition(camera: BABYLON.UniversalCamera) {
 ```
 
 2. 9/26号的模型加载问题，可以使用`blender`到处`babylon`格式的模型，这样可以不用手动添加贴图，而是在`babylon`格式中以相对路径的方法引入贴图
+
+### 2024/10/10
+1. [计算绘制面在哪一些区域](https://playground.babylonjs.com/#2FDQT5#2826)
