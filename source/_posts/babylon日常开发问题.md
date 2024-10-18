@@ -193,3 +193,183 @@ function checkCameraPosition(camera: BABYLON.UniversalCamera) {
 
 ### 2024/10/10
 1. [计算绘制面在哪一些区域](https://playground.babylonjs.com/#2FDQT5#2826)
+
+### 2024/10/18
+[演示效果](https://xtspace.cc:10092/juliusuo-web/)
+#### icon创建
+因为之前都是使用的是动态纹理贴图的方式，所以最开始也是使用这种方式，但是图片会有锯齿状并且文字贴图中的文字也非常的不清晰，特别是文字小的时候，最后使用`GUI3D`来创建图标,代码如下,有一种情况上图标旁边还有一个`tooltip`的效果，这个时候，其实两者需要用的都是一个坐标，但是`tooltip`要像左边偏一点，这个时候需要修改的是`linkOffsetX`，而不是`x`的坐标，因为`GUI3D`在场景中放大缩小会有偏移的感觉，如果调整`x`，在放大的时候两者就会有偏移
+```ts
+    // 创建图片
+    const mesh = BABYLON.MeshBuilder.CreatePlane("", { width: 0.01, height: 0.01 });
+    mesh.visibility = 0;
+
+    const icon = new GUI.Image(data.id, data.icon);
+    icon.width = width + "px";
+    icon.height = height + "px";
+    this.advancedDynamicTexture = this.scene.getTextureByName("GUI") as GUI.AdvancedDynamicTexture;
+    this.advancedDynamicTexture.addControl(icon);
+
+    icon.linkWithMesh(mesh);
+    mesh.position.set(data.x, data.y, data.z);
+
+    // 创建文本
+    const textBlock = new GUI.TextBlock(data.id, data.name);
+    textBlock.fontSize = fontSize;
+    textBlock.width = width + "px";
+    textBlock.height = height + "px";
+    textBlock.color = "white";
+    textBlock.linkOffsetX = linkOffsetX;
+    textBlock.linkOffsetY = linkOffsetY;
+    textBlock.textHorizontalAlignment = GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
+    textBlock.textVerticalAlignment = GUI.Control.VERTICAL_ALIGNMENT_CENTER;
+    textBlock.fontWeight = isBold ? "bold" : "normal"; 
+    this.advancedDynamicTexture?.addControl(textBlock);
+    // mesh表示你要设置的背景图mesh对象
+    textBlock.linkWithMesh(mesh);
+```
+#### Gui事件绑定
+因为之前使用的是动态贴图的方式，所以可以直接使用`mesh.actionManager`的方式注册事件,也可以直接动过`scene.getMeshById`去找到对应的`mesh`,但是使用`gui`之后，`scene`中的`meshes`是有没有的，但是可以通过上面的`this.advancedDynamicTexture`中的`rootContainer.children``可以获取到有哪些gui，触发事件的方式也变化了，使用onPointerUpObservable`
+```ts
+// mesh绑定事件
+const mesh = scene.getMeshById("mesh")
+mesh.actionManager = new BABYLON.ActionManager(mesh.getScene());
+mesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(
+    BABYLON.ActionManager.OnPickTrigger,
+    ()=>{}
+));
+// gui绑定事件
+const controls = this.gui.rootContainer.children.filter(d => d.name == name || d.name?.startsWith(name))
+controls.forEach(d=>{
+  d.onPointerUpObservable.add(() => {});
+})
+```
+
+#### 相机动画
+```ts
+import * as BABYLON from "babylonjs";
+import { get } from 'lodash-es'
+
+class Camera {
+    camera: BABYLON.ArcRotateCamera;
+
+    constructor(scene: BABYLON.Scene) {
+        const camera = new BABYLON.ArcRotateCamera(
+            "camera",
+            BABYLON.Tools.ToRadians(-90),
+            BABYLON.Tools.ToRadians(75),
+            200,
+            new BABYLON.Vector3(0, 0, 0),
+            scene
+        );
+        camera.minZ = 0.1;
+        camera.lowerRadiusLimit = 3;
+        camera.upperRadiusLimit = 600;
+        camera.attachControl();
+        this.camera = camera;
+    }
+
+    /**
+     * 相机视角切换（带动画过渡）
+     * @param beta  沿x轴旋转
+     * @param alpha 沿y轴旋转
+     * @param radius 相机半径
+     * @param target 目标点（可选）
+     * @param duration 动画持续时间（可选）
+     */
+    switch(beta: number, alpha: number, radius: number, target?: BABYLON.Vector3, duration: number = 60) {
+        target && this.camera.setTarget(target);
+
+        // 创建动画
+        const alphaAnimation = this.createAnimation("alpha", BABYLON.Tools.ToRadians(alpha), duration);
+        const betaAnimation = this.createAnimation("beta", BABYLON.Tools.ToRadians(beta), duration);
+        const radiusAnimation = this.createAnimation("radius", radius, duration);
+
+        this.camera.animations = [alphaAnimation, betaAnimation, radiusAnimation];
+        this.camera.getScene().beginAnimation(this.camera, 0, duration, false);
+    }
+
+    switchDefault(duration: number = 60) {
+        this.switch(75, -90, 200, new BABYLON.Vector3(0, 0, 0), duration);
+    }
+
+    /**
+     * 创建动画
+     * @param property 动画属性
+     * @param endValue 终止值
+     * @param duration 动画持续时间
+     * @returns 返回创建的动画对象
+     */
+    createAnimation(property: string, endValue: number, duration: number): BABYLON.Animation {
+        const animation = new BABYLON.Animation(
+            `${property}Animation`,
+            property,
+            60,
+            BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+            BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+        );
+
+        const keys = [
+            { frame: 0, value: get(this.camera, property) },
+            { frame: duration, value: endValue }
+        ];
+
+        animation.setKeys(keys);
+        return animation;
+    }
+}
+
+export { Camera };
+
+```
+#### 开门动画
+门的mesh在建模的使用中心轴要放在门把手的另一边
+```ts
+export const registerDoorAnimation = ({
+  scene,
+  meshRef,
+  meshId,
+}: {
+  scene: BABYLON.Scene;
+  meshRef: Mesh;
+  meshId: string;
+}) => {
+  const door = meshRef.getMesh(meshId)! as AbstractMesh;
+  const startRotation = door.rotation.z;
+  const endRotation = door._isOpen ? 0 : Math.PI / 2;
+
+  const doorAnimation = new BABYLON.Animation(
+    "doorAnimation",
+    "rotation.z",
+    30,
+    BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+    BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+  );
+
+  const keys = [
+    { frame: 0, value: startRotation },
+    { frame: 30, value: endRotation },
+  ];
+
+  doorAnimation.setKeys(keys);
+
+  door.animations = [];
+  door.animations.push(doorAnimation);
+  door._isOpen = !door._isOpen;
+
+  scene.beginAnimation(door, 0, 30, false);
+};
+```
+
+#### 体积雾和镜像
+```ts
+scene.fogMode = BABYLON.Scene.FOGMODE_LINEAR; // 不写没效果
+scene.fogColor = new BABYLON.Color3(10 / 255, 82 / 255, 140 / 255);
+scene.fogDensity = 0.01;
+
+const mirror = new BABYLON.MirrorTexture("mirror", 1024);
+mirror.mirrorPlane = new BABYLON.Plane(0, -1, 0, 0);
+mirror.level = .1;
+const mirrorMesh = this.scene?.meshes ?? []
+mirror.renderList?.push(...mirrorMesh);
+(plane.material as BABYLON.StandardMaterial).reflectionTexture = mirror
+```
